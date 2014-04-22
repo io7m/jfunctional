@@ -19,13 +19,14 @@ package com.io7m.jfunctional.tests;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jequality.validator.AnnotationRequirement;
 import com.io7m.jequality.validator.EqualityValidator;
 import com.io7m.jequality.validator.ValidatorResult;
 import com.io7m.jfunctional.Pair;
 import com.io7m.jnull.NullCheckException;
 
-public class PairTest
+@EqualityReference public class PairTest
 {
   @SuppressWarnings("static-method") @Test public void testCorrect()
   {

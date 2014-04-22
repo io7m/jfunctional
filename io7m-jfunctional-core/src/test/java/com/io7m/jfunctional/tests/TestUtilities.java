@@ -16,9 +16,10 @@
 
 package com.io7m.jfunctional.tests;
 
+import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jnull.NonNull;
 
-public final class TestUtilities
+@EqualityReference public final class TestUtilities
 {
   private static final Object z = null;
 

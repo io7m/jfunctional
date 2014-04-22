@@ -19,9 +19,10 @@ package com.io7m.jfunctional.tests;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jfunctional.PartialFunctionType;
 
-public class PartialFunctionTypeTest
+@EqualityReference public class PartialFunctionTypeTest
 {
   @SuppressWarnings("static-method") @Test public void testCorrect()
     throws Exception

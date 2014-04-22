@@ -19,12 +19,13 @@ package com.io7m.jfunctional.tests;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jfunctional.Failure;
 import com.io7m.jfunctional.Success;
 import com.io7m.jfunctional.Try;
 import com.io7m.jnull.NullCheckException;
 
-public final class TryTest
+@EqualityReference public final class TryTest
 {
   @SuppressWarnings("static-method") @Test public void testFailure_0()
   {

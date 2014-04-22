@@ -19,9 +19,10 @@ package com.io7m.jfunctional.tests;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jfunctional.Option;
 
-public class OptionTest
+@EqualityReference public class OptionTest
 {
   @SuppressWarnings("static-method") @Test public void testOf()
   {

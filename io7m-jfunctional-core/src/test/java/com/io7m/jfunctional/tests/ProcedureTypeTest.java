@@ -21,9 +21,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jfunctional.ProcedureType;
 
-public class ProcedureTypeTest
+@EqualityReference public class ProcedureTypeTest
 {
   @SuppressWarnings("static-method") @Test public void testCorrect()
   {

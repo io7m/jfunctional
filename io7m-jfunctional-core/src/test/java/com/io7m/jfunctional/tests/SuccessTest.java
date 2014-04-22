@@ -19,6 +19,7 @@ package com.io7m.jfunctional.tests;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jequality.validator.AnnotationRequirement;
 import com.io7m.jequality.validator.EqualityValidator;
 import com.io7m.jequality.validator.ValidatorResult;
@@ -32,7 +33,7 @@ import com.io7m.jfunctional.TryVisitorType;
 import com.io7m.jnull.NullCheckException;
 import com.io7m.junreachable.UnreachableCodeException;
 
-public final class SuccessTest
+@EqualityReference public final class SuccessTest
 {
   @SuppressWarnings({ "boxing", "static-method" }) @Test public
     void
