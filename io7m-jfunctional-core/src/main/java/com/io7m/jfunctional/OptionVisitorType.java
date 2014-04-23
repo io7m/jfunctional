@@ -23,6 +23,8 @@ package com.io7m.jfunctional;
  *          The type of values
  * @param <U>
  *          The type of returned values
+ * 
+ * @see OptionType#accept(OptionVisitorType)
  */
 
 public interface OptionVisitorType<T, U>

@@ -17,7 +17,7 @@
 package com.io7m.jfunctional;
 
 /**
- * The type of {@link OptionType} visitors.
+ * The type of partial {@link OptionType} visitors.
  * 
  * @param <T>
  *          The type of values
@@ -25,6 +25,8 @@ package com.io7m.jfunctional;
  *          The type of returned values
  * @param <E>
  *          The type of exceptions raised
+ * 
+ * @see OptionType#acceptPartial(OptionPartialVisitorType)
  */
 
 public interface OptionPartialVisitorType<T, U, E extends Throwable>

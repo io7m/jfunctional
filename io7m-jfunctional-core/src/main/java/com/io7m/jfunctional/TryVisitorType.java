@@ -25,6 +25,8 @@ package com.io7m.jfunctional;
  *          The type of success values
  * @param <U>
  *          The type of returned values
+ * 
+ * @see TryType#accept(TryVisitorType)
  */
 
 public interface TryVisitorType<F, S, U>
