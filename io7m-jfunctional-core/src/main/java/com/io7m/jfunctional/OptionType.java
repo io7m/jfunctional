@@ -61,6 +61,18 @@ import com.io7m.jequality.annotations.EqualityStructural;
     throws E;
 
   /**
+   * @return <code>true</code> if the current value is {@link None}.
+   */
+
+  boolean isNone();
+
+  /**
+   * @return <code>true</code> if the current value is {@link Some}.
+   */
+
+  boolean isSome();
+
+  /**
    * <p>
    * If this value is <code>Some(x)</code>, return {@link Option#of(Object)}
    * with <code>f(x)</code>. Otherwise, return {@link None}.

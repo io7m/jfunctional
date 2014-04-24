@@ -56,6 +56,12 @@ import com.io7m.junreachable.UnreachableCodeException;
         true));
   }
 
+  @SuppressWarnings({ "static-method" }) @Test public void testIsNone()
+  {
+    Assert.assertTrue(Option.none().isNone());
+    Assert.assertFalse(Option.none().isSome());
+  }
+
   @SuppressWarnings({ "static-method" }) @Test public void testNoneAccept_0()
   {
     Assert.assertEquals(

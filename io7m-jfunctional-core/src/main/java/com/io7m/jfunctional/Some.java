@@ -116,4 +116,14 @@ import com.io7m.jnull.Nullable;
     assert s != null;
     return s;
   }
+
+  @Override public boolean isNone()
+  {
+    return false;
+  }
+
+  @Override public boolean isSome()
+  {
+    return true;
+  }
 }

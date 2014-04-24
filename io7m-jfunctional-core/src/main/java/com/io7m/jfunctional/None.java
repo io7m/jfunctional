@@ -99,4 +99,14 @@ import com.io7m.jnull.Nullable;
   {
     return "[None]";
   }
+
+  @Override public boolean isNone()
+  {
+    return true;
+  }
+
+  @Override public boolean isSome()
+  {
+    return false;
+  }
 }

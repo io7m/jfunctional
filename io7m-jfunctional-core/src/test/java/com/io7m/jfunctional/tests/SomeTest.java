@@ -60,20 +60,26 @@ import com.io7m.junreachable.UnreachableCodeException;
         true));
   }
 
+  @SuppressWarnings({ "static-method" }) @Test public void testIsSome()
+  {
+    Assert.assertTrue(Option.some("xyz").isSome());
+    Assert.assertFalse(Option.some("xyz").isNone());
+  }
+
   @SuppressWarnings("static-method") @Test(
     expected = NullCheckException.class) public void testNull_0()
   {
     Option.some(TestUtilities.actuallyNull());
   }
 
-  @SuppressWarnings({ "static-method", "unchecked" }) @Test(
+  @SuppressWarnings({ "static-method", "unchecked", "boxing" }) @Test(
     expected = NullCheckException.class) public void testNull_1()
   {
     Option.some(23).accept(
       (OptionVisitorType<Integer, Integer>) TestUtilities.actuallyNull());
   }
 
-  @SuppressWarnings({ "static-method", "unchecked" }) @Test(
+  @SuppressWarnings({ "static-method", "unchecked", "boxing" }) @Test(
     expected = NullCheckException.class) public void testNull_2()
     throws Exception
   {
