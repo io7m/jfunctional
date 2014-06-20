@@ -32,6 +32,8 @@ import com.io7m.jnull.Nullable;
 
 @EqualityStructural public final class Some<T> implements OptionType<T>
 {
+  private static final long serialVersionUID = 9158960385113454019L;
+
   static <T> Some<T> some(
     final T x)
   {

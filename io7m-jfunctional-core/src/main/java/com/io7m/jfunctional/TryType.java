@@ -16,6 +16,8 @@
 
 package com.io7m.jfunctional;
 
+import java.io.Serializable;
+
 /**
  * <p>
  * The type of computations that can succeed and yield <code>S</code>, or fail
@@ -28,7 +30,7 @@ package com.io7m.jfunctional;
  *          The type of failure values.
  */
 
-public interface TryType<F, S>
+public interface TryType<F, S> extends Serializable
 {
   /**
    * Accept a visitor.

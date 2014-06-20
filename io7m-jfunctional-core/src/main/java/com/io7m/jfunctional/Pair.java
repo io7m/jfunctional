@@ -16,6 +16,8 @@
 
 package com.io7m.jfunctional;
 
+import java.io.Serializable;
+
 import com.io7m.jequality.annotations.EqualityStructural;
 import com.io7m.jnull.NullCheck;
 import com.io7m.jnull.Nullable;
@@ -29,8 +31,10 @@ import com.io7m.jnull.Nullable;
  *          The type of right values.
  */
 
-@EqualityStructural public final class Pair<A, B>
+@EqualityStructural public final class Pair<A, B> implements Serializable
 {
+  private static final long serialVersionUID = 5737112071204239831L;
+
   /**
    * Return a new pair <code>(left, right)</code>.
    * 

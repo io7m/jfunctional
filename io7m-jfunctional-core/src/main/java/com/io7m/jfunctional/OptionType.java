@@ -16,6 +16,8 @@
 
 package com.io7m.jfunctional;
 
+import java.io.Serializable;
+
 import com.io7m.jequality.annotations.EqualityStructural;
 
 /**
@@ -27,7 +29,7 @@ import com.io7m.jequality.annotations.EqualityStructural;
  *          The type of values.
  */
 
-@EqualityStructural public interface OptionType<T>
+@EqualityStructural public interface OptionType<T> extends Serializable
 {
   /**
    * Accept a visitor.

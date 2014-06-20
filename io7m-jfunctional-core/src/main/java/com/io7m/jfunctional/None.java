@@ -32,8 +32,9 @@ import com.io7m.jnull.Nullable;
 
 @EqualityStructural public final class None<T> implements OptionType<T>
 {
-  private static final None<?> NONE           = new None<Object>();
-  private static final int     NONE_HASH_CODE = 0xFACECAFE;
+  private static final long    serialVersionUID = -8005083033264721505L;
+  private static final None<?> NONE             = new None<Object>();
+  private static final int     NONE_HASH_CODE   = 0xFACECAFE;
 
   @SuppressWarnings("unchecked") static <T> OptionType<T> none()
   {

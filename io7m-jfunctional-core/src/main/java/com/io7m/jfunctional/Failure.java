@@ -34,6 +34,8 @@ import com.io7m.jnull.Nullable;
 
 @EqualityStructural public final class Failure<F, S> implements TryType<F, S>
 {
+  private static final long serialVersionUID = -4218541696685737451L;
+
   static <F, S> Failure<F, S> failure(
     final F x)
   {

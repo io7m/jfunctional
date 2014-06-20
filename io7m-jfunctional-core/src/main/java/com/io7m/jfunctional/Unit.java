@@ -16,6 +16,8 @@
 
 package com.io7m.jfunctional;
 
+import java.io.Serializable;
+
 import com.io7m.jequality.annotations.EqualityStructural;
 import com.io7m.jnull.Nullable;
 
@@ -25,15 +27,16 @@ import com.io7m.jnull.Nullable;
  * </p>
  */
 
-@EqualityStructural public final class Unit
+@EqualityStructural public final class Unit implements Serializable
 {
-  private static final Unit UNIT           = new Unit();
+  private static final long serialVersionUID = -9037394631765247295L;
+  private static final Unit UNIT             = new Unit();
 
   /**
    * The hash code for the {@link Unit} type.
    */
 
-  public static final int   UNIT_HASH_CODE = 0xFACECAFE;
+  public static final int   UNIT_HASH_CODE   = 0xFACECAFE;
 
   /**
    * @return The unit value
