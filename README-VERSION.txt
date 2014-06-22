@@ -1,1 +1,1 @@
-io7m-jfunctional 0.3.2
+io7m-jfunctional 1.0.0
