@@ -19,7 +19,7 @@ package com.io7m.jfunctional;
 /**
  * <p>
  * Non-dependent unary function type, equivalent to
- * <code>PartialFunction<A, Unit, E></code> but substituting <code>void</code>
+ * <code>PartialFunction&lt;A, Unit, E&gt;</code> but substituting <code>void</code>
  * for <code>Unit</code> to avoid allocating useless objects.
  * </p>
  * 

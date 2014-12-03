@@ -19,7 +19,7 @@ package com.io7m.jfunctional;
 /**
  * <p>
  * Non-dependent unary function type, equivalent to
- * <code>Function<A, Unit></code> but substituting <code>void</code> for
+ * <code>Function&lt;A, Unit&gt;</code> but substituting <code>void</code> for
  * <code>Unit</code> to avoid allocating useless objects.
  * </p>
  * 
