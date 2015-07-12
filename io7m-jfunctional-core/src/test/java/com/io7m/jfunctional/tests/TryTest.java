@@ -23,23 +23,10 @@ import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jfunctional.Failure;
 import com.io7m.jfunctional.Success;
 import com.io7m.jfunctional.Try;
-import com.io7m.jfunctional.TryType;
 import com.io7m.jnull.NullCheckException;
 
 @SuppressWarnings("static-method") @EqualityReference public final class TryTest
 {
-  @Test public void testConvergeFailure_0()
-  {
-    final TryType<Integer, Integer> t = Try.failure(23);
-    Assert.assertEquals((Integer) 23, Try.converge(t));
-  }
-
-  @Test public void testConvergeSuccess_0()
-  {
-    final TryType<Integer, Integer> t = Try.success(23);
-    Assert.assertEquals((Integer) 23, Try.converge(t));
-  }
-
   @Test public void testFailure_0()
   {
     final Failure<Integer, ?> s = (Failure<Integer, ?>) Try.failure(23);
