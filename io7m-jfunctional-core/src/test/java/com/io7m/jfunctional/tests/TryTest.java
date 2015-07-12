@@ -1,10 +1,10 @@
 /*
  * Copyright © 2014 <code@io7m.com> http://io7m.com
- * 
+ *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
  * copyright notice and this permission notice appear in all copies.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
  * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
@@ -23,29 +23,40 @@ import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jfunctional.Failure;
 import com.io7m.jfunctional.Success;
 import com.io7m.jfunctional.Try;
+import com.io7m.jfunctional.TryType;
 import com.io7m.jnull.NullCheckException;
 
-@EqualityReference public final class TryTest
+@SuppressWarnings("static-method") @EqualityReference public final class TryTest
 {
-  @SuppressWarnings("static-method") @Test public void testFailure_0()
+  @Test public void testConvergeFailure_0()
+  {
+    final TryType<Integer, Integer> t = Try.failure(23);
+    Assert.assertEquals((Integer) 23, Try.converge(t));
+  }
+
+  @Test public void testConvergeSuccess_0()
+  {
+    final TryType<Integer, Integer> t = Try.success(23);
+    Assert.assertEquals((Integer) 23, Try.converge(t));
+  }
+
+  @Test public void testFailure_0()
   {
     final Failure<Integer, ?> s = (Failure<Integer, ?>) Try.failure(23);
     Assert.assertEquals((Integer) 23, s.get());
   }
 
-  @SuppressWarnings("static-method") @Test(
-    expected = NullCheckException.class) public void testNull_0()
+  @Test(expected = NullCheckException.class) public void testNull_0()
   {
     Try.success(TestUtilities.actuallyNull());
   }
 
-  @SuppressWarnings("static-method") @Test(
-    expected = NullCheckException.class) public void testNull_1()
+  @Test(expected = NullCheckException.class) public void testNull_1()
   {
     Try.failure(TestUtilities.actuallyNull());
   }
 
-  @SuppressWarnings("static-method") @Test public void testSuccess_0()
+  @Test public void testSuccess_0()
   {
     final Success<?, Integer> s = (Success<?, Integer>) Try.success(23);
     Assert.assertEquals((Integer) 23, s.get());
