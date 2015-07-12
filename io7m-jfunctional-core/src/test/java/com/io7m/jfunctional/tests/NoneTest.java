@@ -1,10 +1,10 @@
 /*
  * Copyright © 2014 <code@io7m.com> http://io7m.com
- * 
+ *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
  * copyright notice and this permission notice appear in all copies.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
  * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
@@ -34,9 +34,9 @@ import com.io7m.jfunctional.Some;
 import com.io7m.jnull.NullCheckException;
 import com.io7m.junreachable.UnreachableCodeException;
 
-@EqualityReference public final class NoneTest
+@SuppressWarnings({ "boxing", "unchecked", "static-method" }) @EqualityReference public final class NoneTest
 {
-  @SuppressWarnings({ "static-method" }) @Test public void testEquals()
+  @Test public void testEquals()
   {
     Assert.assertEquals(Option.none(), Option.none());
 
@@ -47,7 +47,7 @@ import com.io7m.junreachable.UnreachableCodeException;
     Assert.assertNotEquals(Option.none(), Option.some("hello"));
   }
 
-  @SuppressWarnings("static-method") @Test public void testEqualsType()
+  @Test public void testEqualsType()
   {
     Assert.assertEquals(ValidatorResult.VALIDATION_OK, EqualityValidator
       .validateClass(
@@ -56,13 +56,13 @@ import com.io7m.junreachable.UnreachableCodeException;
         true));
   }
 
-  @SuppressWarnings({ "static-method" }) @Test public void testIsNone()
+  @Test public void testIsNone()
   {
     Assert.assertTrue(Option.none().isNone());
     Assert.assertFalse(Option.none().isSome());
   }
 
-  @SuppressWarnings({ "static-method" }) @Test public void testNoneAccept_0()
+  @Test public void testNoneAccept_0()
   {
     Assert.assertEquals(
       Option.none().accept(new OptionVisitorType<Object, Object>() {
@@ -81,7 +81,7 @@ import com.io7m.junreachable.UnreachableCodeException;
       null);
   }
 
-  @SuppressWarnings({ "static-method" }) @Test public void testNoneAccept_1()
+  @Test public void testNoneAccept_1()
     throws Exception
   {
     Assert.assertEquals(
@@ -102,10 +102,8 @@ import com.io7m.junreachable.UnreachableCodeException;
         }));
   }
 
-  @SuppressWarnings({ "static-method", "boxing" }) @Test public
-    void
-    testNoneMap_0()
-      throws Exception
+  @Test public void testNoneMap_0()
+    throws Exception
   {
     Assert.assertEquals(
       Option.none(),
@@ -118,10 +116,8 @@ import com.io7m.junreachable.UnreachableCodeException;
       }));
   }
 
-  @SuppressWarnings({ "static-method", "boxing" }) @Test public
-    void
-    testNoneMap_1()
-      throws Exception
+  @Test public void testNoneMap_1()
+    throws Exception
   {
     Assert.assertEquals(
       Option.none(),
@@ -135,15 +131,13 @@ import com.io7m.junreachable.UnreachableCodeException;
         }));
   }
 
-  @SuppressWarnings({ "static-method", "unchecked" }) @Test(
-    expected = NullCheckException.class) public void testNull_0()
+  @Test(expected = NullCheckException.class) public void testNull_0()
   {
     Option.none().accept(
       (OptionVisitorType<Object, Object>) TestUtilities.actuallyNull());
   }
 
-  @SuppressWarnings({ "static-method", "unchecked" }) @Test(
-    expected = NullCheckException.class) public void testNull_2()
+  @Test(expected = NullCheckException.class) public void testNull_2()
     throws Exception
   {
     Option.none().acceptPartial(
@@ -151,7 +145,7 @@ import com.io7m.junreachable.UnreachableCodeException;
         .actuallyNull());
   }
 
-  @SuppressWarnings({ "static-method" }) @Test public void testToString()
+  @Test public void testToString()
   {
     Assert.assertEquals(Option.none().toString(), Option.none().toString());
   }

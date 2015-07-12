@@ -24,9 +24,9 @@ import org.junit.Test;
 import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jfunctional.PartialProcedureType;
 
-@EqualityReference public class PartialProcedureTypeTest
+@SuppressWarnings({ "null", "static-method" }) @EqualityReference public class PartialProcedureTypeTest
 {
-  @SuppressWarnings("static-method") @Test public void testCorrect()
+  @Test public void testCorrect()
     throws Throwable
   {
     final AtomicInteger value = new AtomicInteger(0);

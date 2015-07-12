@@ -22,9 +22,9 @@ import org.junit.Test;
 import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jfunctional.FunctionType;
 
-@EqualityReference public class FunctionTest
+@SuppressWarnings({ "null", "static-method" }) @EqualityReference public class FunctionTest
 {
-  @SuppressWarnings("static-method") @Test public void testCorrect()
+  @Test public void testCorrect()
   {
     final FunctionType<Integer, Integer> f =
       new FunctionType<Integer, Integer>() {

@@ -33,11 +33,9 @@ import com.io7m.jfunctional.TryVisitorType;
 import com.io7m.jnull.NullCheckException;
 import com.io7m.junreachable.UnreachableCodeException;
 
-@EqualityReference public final class SuccessTest
+@SuppressWarnings({ "boxing", "unchecked", "static-method" }) @EqualityReference public final class SuccessTest
 {
-  @SuppressWarnings({ "boxing", "static-method" }) @Test public
-    void
-    testEquals()
+  @Test public void testEquals()
   {
     Assert.assertEquals(Try.success(23), Try.success(23));
 
@@ -50,7 +48,7 @@ import com.io7m.junreachable.UnreachableCodeException;
     Assert.assertNotEquals(Try.success(23), Try.failure(23));
   }
 
-  @SuppressWarnings("static-method") @Test public void testEqualsType()
+  @Test public void testEqualsType()
   {
     Assert.assertEquals(ValidatorResult.VALIDATION_OK, EqualityValidator
       .validateClass(
@@ -59,14 +57,12 @@ import com.io7m.junreachable.UnreachableCodeException;
         true));
   }
 
-  @SuppressWarnings("static-method") @Test(
-    expected = NullCheckException.class) public void testNull_0()
+  @Test(expected = NullCheckException.class) public void testNull_0()
   {
     Try.success(TestUtilities.actuallyNull());
   }
 
-  @SuppressWarnings({ "static-method", "unchecked" }) @Test(
-    expected = NullCheckException.class) public void testNull_1()
+  @Test(expected = NullCheckException.class) public void testNull_1()
   {
     Try
       .success(23)
@@ -75,8 +71,7 @@ import com.io7m.junreachable.UnreachableCodeException;
           .actuallyNull());
   }
 
-  @SuppressWarnings({ "static-method", "unchecked" }) @Test(
-    expected = NullCheckException.class) public void testNull_2()
+  @Test(expected = NullCheckException.class) public void testNull_2()
     throws Exception
   {
     Try
@@ -86,9 +81,7 @@ import com.io7m.junreachable.UnreachableCodeException;
           .actuallyNull());
   }
 
-  @SuppressWarnings({ "static-method", "boxing" }) @Test public
-    void
-    testSomeAccept_0()
+  @Test public void testSomeAccept_0()
   {
     Assert.assertEquals(
       (Integer) 23,
@@ -107,10 +100,8 @@ import com.io7m.junreachable.UnreachableCodeException;
       }));
   }
 
-  @SuppressWarnings({ "static-method", "boxing" }) @Test public
-    void
-    testSomeAccept_1()
-      throws Exception
+  @Test public void testSomeAccept_1()
+    throws Exception
   {
     Assert.assertEquals(
       (Integer) 23,
@@ -132,18 +123,14 @@ import com.io7m.junreachable.UnreachableCodeException;
         }));
   }
 
-  @SuppressWarnings({ "static-method", "boxing" }) @Test public
-    void
-    testSomeGet_0()
+  @Test public void testSomeGet_0()
   {
     final Success<Object, Integer> s =
       (Success<Object, Integer>) Try.success(23);
     Assert.assertEquals((Integer) 23, s.get());
   }
 
-  @SuppressWarnings({ "boxing", "static-method" }) @Test public
-    void
-    testToString()
+  @Test public void testToString()
   {
     Assert.assertNotEquals(Try.success(23).toString(), Try
       .success(24)

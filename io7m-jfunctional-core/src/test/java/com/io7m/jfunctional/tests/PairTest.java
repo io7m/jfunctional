@@ -26,9 +26,9 @@ import com.io7m.jequality.validator.ValidatorResult;
 import com.io7m.jfunctional.Pair;
 import com.io7m.jnull.NullCheckException;
 
-@EqualityReference public class PairTest
+@SuppressWarnings({ "boxing", "static-method" }) @EqualityReference public class PairTest
 {
-  @SuppressWarnings("static-method") @Test public void testCorrect()
+  @Test public void testCorrect()
   {
     final Integer i23 = Integer.valueOf(23);
     assert i23 != null;
@@ -38,7 +38,7 @@ import com.io7m.jnull.NullCheckException;
     Assert.assertEquals("hello", p.getRight());
   }
 
-  @SuppressWarnings("static-method") @Test public void testEquals()
+  @Test public void testEquals()
   {
     final Integer i32 = Integer.valueOf(32);
     final Integer i23 = Integer.valueOf(23);
@@ -59,7 +59,7 @@ import com.io7m.jnull.NullCheckException;
     Assert.assertEquals(p0, p1);
   }
 
-  @SuppressWarnings("static-method") @Test public void testEqualsType()
+  @Test public void testEqualsType()
   {
     Assert.assertEquals(ValidatorResult.VALIDATION_OK, EqualityValidator
       .validateClass(
@@ -68,7 +68,7 @@ import com.io7m.jnull.NullCheckException;
         true));
   }
 
-  @SuppressWarnings("static-method") @Test public void testHashCode()
+  @Test public void testHashCode()
   {
     final Integer i23 = Integer.valueOf(23);
     assert i23 != null;
@@ -78,19 +78,17 @@ import com.io7m.jnull.NullCheckException;
     Assert.assertEquals(p0.hashCode(), p1.hashCode());
   }
 
-  @SuppressWarnings("static-method") @Test(
-    expected = NullCheckException.class) public void testNull_0()
+  @Test(expected = NullCheckException.class) public void testNull_0()
   {
     Pair.pair(TestUtilities.actuallyNull(), 23);
   }
 
-  @SuppressWarnings("static-method") @Test(
-    expected = NullCheckException.class) public void testNull_1()
+  @Test(expected = NullCheckException.class) public void testNull_1()
   {
     Pair.pair(23, TestUtilities.actuallyNull());
   }
 
-  @SuppressWarnings("static-method") @Test public void testStrings()
+  @Test public void testStrings()
   {
     final Integer i23 = Integer.valueOf(23);
     assert i23 != null;

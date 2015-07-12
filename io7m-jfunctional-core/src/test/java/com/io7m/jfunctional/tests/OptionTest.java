@@ -22,9 +22,9 @@ import org.junit.Test;
 import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jfunctional.Option;
 
-@EqualityReference public class OptionTest
+@SuppressWarnings({ "static-method" }) @EqualityReference public class OptionTest
 {
-  @SuppressWarnings("static-method") @Test public void testOf()
+  @Test public void testOf()
   {
     Assert.assertEquals(Option.none(), Option.of(null));
   }
