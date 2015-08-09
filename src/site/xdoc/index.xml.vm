@@ -5,12 +5,14 @@
   xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
   <properties>
-    <title>Reports</title>
+    <title>io7m-jfunctional</title>
   </properties>
 
   <body>
-    <subsection name="Reports">
-      No reports are currently available.
+    <subsection name="jfunctional">
+      <p>The <var>jfunctional</var> package implements a set of functions
+      and types for assisting with a functional style of programming
+      in Java.</p>
     </subsection>
   </body>
 
