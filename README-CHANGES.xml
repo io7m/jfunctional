@@ -3,6 +3,17 @@
   <c:project>io7m-jfunctional</c:project>
 
   <c:release c:ticket-system="com.github.io7m.jfunctional">
+    <c:date>2015-08-26</c:date>
+    <c:version>1.1.0</c:version>
+    <c:item>
+      <c:date>2015-08-26</c:date>
+      <c:type-code-new/>
+      <c:ticket>1</c:ticket>
+      <c:summary>Add void-returning map for OptionType values.</c:summary>
+    </c:item>
+  </c:release>
+
+  <c:release c:ticket-system="com.github.io7m.jfunctional">
     <c:date>2015-08-09</c:date>
     <c:version>1.0.1</c:version>
     <c:item>
