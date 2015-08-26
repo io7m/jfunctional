@@ -43,8 +43,10 @@ import java.io.Serializable;
    * <p> If this value is <code>Some(x)</code>, evaluate {@code p(x)}.
    * Otherwise, do nothing. </p>
    *
-   * @param p The procedure The type of exceptions thrown by the procedure.
+   * @param p   The procedure
+   * @param <E> The type of exceptions thrown by the procedure.
    *
+   * @throws E Propagated from {@code p}
    * @since 1.1.0
    */
 
