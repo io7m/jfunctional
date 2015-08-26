@@ -21,18 +21,23 @@ import com.io7m.jnull.NullCheck;
 import com.io7m.jnull.Nullable;
 
 /**
- * <p>
- * A value.
- * </p>
- * 
+ * <p> A value. </p>
+ *
+ * @param <T> The type of values.
+ *
  * @see OptionType
- * @param <T>
- *          The type of values.
  */
 
 @EqualityStructural public final class Some<T> implements OptionType<T>
 {
   private static final long serialVersionUID = 9158960385113454019L;
+  private final T x;
+
+  private Some(
+    final T in_x)
+  {
+    this.x = NullCheck.notNull(in_x, "Some value");
+  }
 
   static <T> Some<T> some(
     final T x)
@@ -40,12 +45,18 @@ import com.io7m.jnull.Nullable;
     return new Some<T>(x);
   }
 
-  private final T x;
-
-  private Some(
-    final T in_x)
+  @Override public void map_(final ProcedureType<T> p)
   {
-    this.x = NullCheck.notNull(in_x, "Some value");
+    NullCheck.notNull(p, "Procedure");
+    p.call(this.x);
+  }
+
+  @Override public <E extends Throwable> void mapPartial_(
+    final PartialProcedureType<T, E> p)
+    throws E
+  {
+    NullCheck.notNull(p, "Procedure");
+    p.call(this.x);
   }
 
   @Override public <U> U accept(

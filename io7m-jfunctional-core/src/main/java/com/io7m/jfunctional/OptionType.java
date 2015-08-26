@@ -16,29 +16,49 @@
 
 package com.io7m.jfunctional;
 
-import java.io.Serializable;
-
 import com.io7m.jequality.annotations.EqualityStructural;
 
+import java.io.Serializable;
+
 /**
- * <p>
- * The type of optional values.
- * </p>
- * 
- * @param <T>
- *          The type of values.
+ * <p> The type of optional values. </p>
+ *
+ * @param <T> The type of values.
  */
 
 @EqualityStructural public interface OptionType<T> extends Serializable
 {
   /**
+   * <p> If this value is <code>Some(x)</code>, evaluate {@code p(x)}.
+   * Otherwise, do nothing. </p>
+   *
+   * @param p The procedure
+   *
+   * @since 1.1.0
+   */
+
+  void map_(final ProcedureType<T> p);
+
+  /**
+   * <p> If this value is <code>Some(x)</code>, evaluate {@code p(x)}.
+   * Otherwise, do nothing. </p>
+   *
+   * @param p The procedure The type of exceptions thrown by the procedure.
+   *
+   * @since 1.1.0
+   */
+
+  <E extends Throwable> void mapPartial_(
+    final PartialProcedureType<T, E> p)
+    throws E;
+
+  /**
    * Accept a visitor.
-   * 
-   * @param v
-   *          The visitor
+   *
+   * @param v   The visitor
+   * @param <U> The type of values returned by the visitor.
+   *
    * @return The value returned by the visitor.
-   * @param <U>
-   *          The type of values returned by the visitor.
    */
 
   <U> U accept(
@@ -46,16 +66,14 @@ import com.io7m.jequality.annotations.EqualityStructural;
 
   /**
    * Accept a partial visitor.
-   * 
-   * @param v
-   *          The visitor
+   *
+   * @param v   The visitor
+   * @param <U> The type of values returned by the visitor.
+   * @param <E> The type of exceptions thrown by the visitor.
+   *
    * @return The value returned by the visitor.
-   * @param <U>
-   *          The type of values returned by the visitor.
-   * @param <E>
-   *          The type of exceptions thrown by the visitor.
-   * @throws E
-   *           If the visitor throws <code>E</code>.
+   *
+   * @throws E If the visitor throws <code>E</code>.
    */
 
   <U, E extends Throwable> U acceptPartial(
@@ -75,15 +93,12 @@ import com.io7m.jequality.annotations.EqualityStructural;
   boolean isSome();
 
   /**
-   * <p>
-   * If this value is <code>Some(x)</code>, return {@link Option#of(Object)}
-   * with <code>f(x)</code>. Otherwise, return {@link None}.
-   * </p>
-   * 
-   * @param <U>
-   *          The type of returned values.
-   * @param f
-   *          The map function.
+   * <p> If this value is <code>Some(x)</code>, return {@link Option#of(Object)}
+   * with <code>f(x)</code>. Otherwise, return {@link None}. </p>
+   *
+   * @param <U> The type of returned values.
+   * @param f   The map function.
+   *
    * @return An optional value of type <code>U</code>.
    */
 
@@ -91,20 +106,16 @@ import com.io7m.jequality.annotations.EqualityStructural;
     FunctionType<T, U> f);
 
   /**
-   * <p>
-   * If this value is <code>Some(x)</code>, return {@link Option#of(Object)}
-   * with <code>f(x)</code>. Otherwise, return {@link None}.
-   * </p>
-   * 
-   * @param <E>
-   *          The type of exceptions raised.
-   * @param <U>
-   *          The type of returned values.
-   * @param f
-   *          The map function.
+   * <p> If this value is <code>Some(x)</code>, return {@link Option#of(Object)}
+   * with <code>f(x)</code>. Otherwise, return {@link None}. </p>
+   *
+   * @param <E> The type of exceptions raised.
+   * @param <U> The type of returned values.
+   * @param f   The map function.
+   *
    * @return An optional value of type <code>U</code>.
-   * @throws E
-   *           If <code>f</code> throws <code>E</code>.
+   *
+   * @throws E If <code>f</code> throws <code>E</code>.
    */
 
   <U, E extends Throwable> OptionType<U> mapPartial(

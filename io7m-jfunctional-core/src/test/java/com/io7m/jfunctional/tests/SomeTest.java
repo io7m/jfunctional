@@ -16,9 +16,6 @@
 
 package com.io7m.jfunctional.tests;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jequality.validator.AnnotationRequirement;
 import com.io7m.jequality.validator.EqualityValidator;
@@ -30,11 +27,19 @@ import com.io7m.jfunctional.OptionPartialVisitorType;
 import com.io7m.jfunctional.OptionType;
 import com.io7m.jfunctional.OptionVisitorType;
 import com.io7m.jfunctional.PartialFunctionType;
+import com.io7m.jfunctional.PartialProcedureType;
+import com.io7m.jfunctional.ProcedureType;
 import com.io7m.jfunctional.Some;
 import com.io7m.jnull.NullCheckException;
 import com.io7m.junreachable.UnreachableCodeException;
+import org.junit.Assert;
+import org.junit.Test;
 
-@SuppressWarnings({ "boxing", "unchecked", "static-method" }) @EqualityReference public final class SomeTest
+import java.io.IOException;
+import java.util.concurrent.atomic.AtomicInteger;
+
+@SuppressWarnings({ "boxing", "unchecked", "static-method" }) @EqualityReference
+public final class SomeTest
 {
   @Test public void testEquals()
   {
@@ -51,11 +56,9 @@ import com.io7m.junreachable.UnreachableCodeException;
 
   @Test public void testEqualsType()
   {
-    Assert.assertEquals(ValidatorResult.VALIDATION_OK, EqualityValidator
-      .validateClass(
-        Some.class,
-        AnnotationRequirement.ANNOTATIONS_REQUIRED,
-        true));
+    Assert.assertEquals(
+      ValidatorResult.VALIDATION_OK, EqualityValidator.validateClass(
+        Some.class, AnnotationRequirement.ANNOTATIONS_REQUIRED, true));
   }
 
   @Test public void testIsSome()
@@ -86,29 +89,30 @@ import com.io7m.junreachable.UnreachableCodeException;
   @Test public void testSomeAccept_0()
   {
     Assert.assertEquals(
-      (Integer) 23,
-      Option.some(46).accept(new OptionVisitorType<Integer, Integer>() {
-        @Override public Integer none(
-          final None<Integer> n)
+      (Integer) 23, Option.some(46).accept(
+        new OptionVisitorType<Integer, Integer>()
         {
-          throw new UnreachableCodeException();
-        }
+          @Override public Integer none(
+            final None<Integer> n)
+          {
+            throw new UnreachableCodeException();
+          }
 
-        @Override public Integer some(
-          final Some<Integer> s)
-        {
-          return s.get() / 2;
-        }
-      }));
+          @Override public Integer some(
+            final Some<Integer> s)
+          {
+            return s.get() / 2;
+          }
+        }));
   }
 
   @Test public void testSomeAccept_1()
     throws Exception
   {
     Assert.assertEquals(
-      (Integer) 23,
-      Option.some(46).acceptPartial(
-        new OptionPartialVisitorType<Integer, Integer, Exception>() {
+      (Integer) 23, Option.some(46).acceptPartial(
+        new OptionPartialVisitorType<Integer, Integer, Exception>()
+        {
           @Override public Integer none(
             final None<Integer> n)
           {
@@ -133,23 +137,24 @@ import com.io7m.junreachable.UnreachableCodeException;
     throws Exception
   {
     Assert.assertEquals(
-      Option.some(23),
-      Option.some(46).map(new FunctionType<Integer, Integer>() {
-        @Override public Integer call(
-          final Integer x)
+      Option.some(23), Option.some(46).map(
+        new FunctionType<Integer, Integer>()
         {
-          return x / 2;
-        }
-      }));
+          @Override public Integer call(
+            final Integer x)
+          {
+            return x / 2;
+          }
+        }));
   }
 
   @Test public void testSomeMap_1()
     throws Exception
   {
     Assert.assertEquals(
-      Option.some(23),
-      Option.some(46).mapPartial(
-        new PartialFunctionType<Integer, Integer, Exception>() {
+      Option.some(23), Option.some(46).mapPartial(
+        new PartialFunctionType<Integer, Integer, Exception>()
+        {
           @Override public Integer call(
             final Integer x)
           {
@@ -160,8 +165,77 @@ import com.io7m.junreachable.UnreachableCodeException;
 
   @Test public void testToString()
   {
-    Assert.assertNotEquals(Option.some(23).toString(), Option
-      .some(24)
-      .toString());
+    Assert.assertNotEquals(
+      Option.some(23).toString(), Option.some(24).toString());
+  }
+
+  @Test public void testSomeMapProcedure_0()
+    throws Exception
+  {
+    final AtomicInteger i = new AtomicInteger(0);
+    final OptionType<Integer> some = Option.some(23);
+    some.map_(
+      new ProcedureType<Integer>()
+      {
+        @Override public void call(final Integer x)
+        {
+          i.set(x.intValue());
+        }
+      });
+
+    Assert.assertEquals(23, i.get());
+  }
+
+  @Test public void testSomeMapPartialProcedure_0()
+    throws Exception
+  {
+    final AtomicInteger i = new AtomicInteger(0);
+    final OptionType<Integer> some = Option.some(23);
+    some.mapPartial_(
+      new PartialProcedureType<Integer, IOException>()
+      {
+        @Override public void call(final Integer x)
+          throws IOException
+        {
+          i.set(x.intValue());
+        }
+      });
+
+    Assert.assertEquals(23, i.get());
+  }
+
+  @Test(expected = IOException.class)
+  public void testSomeMapPartialProcedure_1()
+    throws Exception
+  {
+    final AtomicInteger i = new AtomicInteger(0);
+    final OptionType<Integer> some = Option.some(23);
+    some.mapPartial_(
+      new PartialProcedureType<Integer, IOException>()
+      {
+        @Override public void call(final Integer x)
+          throws IOException
+        {
+          throw new IOException();
+        }
+      });
+  }
+
+  @Test(expected = NullCheckException.class)
+  public void testSomeMapPartialProcedureNull()
+    throws Throwable
+  {
+    final AtomicInteger i = new AtomicInteger(0);
+    final OptionType<Integer> some = Option.some(23);
+    some.mapPartial_(null);
+  }
+
+  @Test(expected = NullCheckException.class)
+  public void testSomeMapProcedureNull()
+    throws Exception
+  {
+    final AtomicInteger i = new AtomicInteger(0);
+    final OptionType<Integer> some = Option.some(23);
+    some.map_(null);
   }
 }

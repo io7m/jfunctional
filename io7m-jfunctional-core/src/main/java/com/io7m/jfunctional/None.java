@@ -21,13 +21,11 @@ import com.io7m.jnull.NullCheck;
 import com.io7m.jnull.Nullable;
 
 /**
- * <p>
- * No value.
- * </p>
- * 
+ * <p> No value. </p>
+ *
+ * @param <T> The type of values
+ *
  * @see OptionType
- * @param <T>
- *          The type of values
  */
 
 @EqualityStructural public final class None<T> implements OptionType<T>
@@ -36,14 +34,26 @@ import com.io7m.jnull.Nullable;
   private static final None<?> NONE             = new None<Object>();
   private static final int     NONE_HASH_CODE   = 0xFACECAFE;
 
+  private None()
+  {
+
+  }
+
   @SuppressWarnings("unchecked") static <T> OptionType<T> none()
   {
     return (OptionType<T>) None.NONE;
   }
 
-  private None()
+  @Override public void map_(final ProcedureType<T> p)
   {
+    NullCheck.notNull(p, "Procedure");
+  }
 
+  @Override public <E extends Throwable> void mapPartial_(
+    final PartialProcedureType<T, E> p)
+    throws E
+  {
+    NullCheck.notNull(p, "Procedure");
   }
 
   @Override public <U> U accept(
@@ -70,10 +80,7 @@ import com.io7m.jnull.Nullable;
     if (obj == null) {
       return false;
     }
-    if (this.getClass() != obj.getClass()) {
-      return false;
-    }
-    return true;
+    return this.getClass() == obj.getClass();
   }
 
   @Override public int hashCode()
