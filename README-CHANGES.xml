@@ -3,6 +3,16 @@
   <c:project>io7m-jfunctional</c:project>
 
   <c:release c:ticket-system="com.github.io7m.jfunctional">
+    <c:date>2016-03-22</c:date>
+    <c:version>1.2.0</c:version>
+    <c:item>
+      <c:date>2016-03-22</c:date>
+      <c:type-code-new/>
+      <c:summary>Add PartialBiFunctionType interface.</c:summary>
+    </c:item>
+  </c:release>
+
+  <c:release c:ticket-system="com.github.io7m.jfunctional">
     <c:date>2015-10-05</c:date>
     <c:version>1.1.0</c:version>
     <c:item>
