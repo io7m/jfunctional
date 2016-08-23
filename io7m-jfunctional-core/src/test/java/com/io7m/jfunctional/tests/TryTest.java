@@ -36,11 +36,13 @@ import com.io7m.jnull.NullCheckException;
   @Test(expected = NullCheckException.class) public void testNull_0()
   {
     Try.success(TestUtilities.actuallyNull());
+    Assert.fail();
   }
 
   @Test(expected = NullCheckException.class) public void testNull_1()
   {
     Try.failure(TestUtilities.actuallyNull());
+    Assert.fail();
   }
 
   @Test public void testSuccess_0()

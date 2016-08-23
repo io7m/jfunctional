@@ -219,6 +219,7 @@ public final class SomeTest
           throw new IOException();
         }
       });
+    Assert.fail();
   }
 
   @Test(expected = NullCheckException.class)
@@ -228,6 +229,7 @@ public final class SomeTest
     final AtomicInteger i = new AtomicInteger(0);
     final OptionType<Integer> some = Option.some(23);
     some.mapPartial_(null);
+    Assert.fail();
   }
 
   @Test(expected = NullCheckException.class)
@@ -237,5 +239,6 @@ public final class SomeTest
     final AtomicInteger i = new AtomicInteger(0);
     final OptionType<Integer> some = Option.some(23);
     some.map_(null);
+    Assert.fail();
   }
 }

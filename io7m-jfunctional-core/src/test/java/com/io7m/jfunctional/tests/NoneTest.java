@@ -38,10 +38,12 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@SuppressWarnings({ "boxing", "unchecked", "static-method" }) @EqualityReference
+@SuppressWarnings({"boxing", "unchecked", "static-method"})
+@EqualityReference
 public final class NoneTest
 {
-  @Test public void testEquals()
+  @Test
+  public void testEquals()
   {
     Assert.assertEquals(Option.none(), Option.none());
 
@@ -52,32 +54,37 @@ public final class NoneTest
     Assert.assertNotEquals(Option.none(), Option.some("hello"));
   }
 
-  @Test public void testEqualsType()
+  @Test
+  public void testEqualsType()
   {
     Assert.assertEquals(
       ValidatorResult.VALIDATION_OK, EqualityValidator.validateClass(
         None.class, AnnotationRequirement.ANNOTATIONS_REQUIRED, true));
   }
 
-  @Test public void testIsNone()
+  @Test
+  public void testIsNone()
   {
     Assert.assertTrue(Option.none().isNone());
     Assert.assertFalse(Option.none().isSome());
   }
 
-  @Test public void testNoneAccept_0()
+  @Test
+  public void testNoneAccept_0()
   {
     Assert.assertEquals(
       Option.none().accept(
         new OptionVisitorType<Object, Object>()
         {
-          @Override public Object none(
+          @Override
+          public Object none(
             final None<Object> n)
           {
             return TestUtilities.actuallyNull();
           }
 
-          @Override public Object some(
+          @Override
+          public Object some(
             final Some<Object> s)
           {
             throw new UnreachableCodeException();
@@ -85,20 +92,23 @@ public final class NoneTest
         }), null);
   }
 
-  @Test public void testNoneAccept_1()
+  @Test
+  public void testNoneAccept_1()
     throws Exception
   {
     Assert.assertEquals(
       null, Option.none().acceptPartial(
         new OptionPartialVisitorType<Object, Object, Exception>()
         {
-          @Override public Object none(
+          @Override
+          public Object none(
             final None<Object> n)
           {
             return TestUtilities.actuallyNull();
           }
 
-          @Override public Object some(
+          @Override
+          public Object some(
             final Some<Object> s)
           {
             throw new UnreachableCodeException();
@@ -106,14 +116,16 @@ public final class NoneTest
         }));
   }
 
-  @Test public void testNoneMap_0()
+  @Test
+  public void testNoneMap_0()
     throws Exception
   {
     Assert.assertEquals(
       Option.none(), Option.none().map(
         new FunctionType<Object, Integer>()
         {
-          @Override public Integer call(
+          @Override
+          public Integer call(
             final Object x)
           {
             return 23;
@@ -121,14 +133,16 @@ public final class NoneTest
         }));
   }
 
-  @Test public void testNoneMap_1()
+  @Test
+  public void testNoneMap_1()
     throws Exception
   {
     Assert.assertEquals(
       Option.none(), Option.none().mapPartial(
         new PartialFunctionType<Object, Integer, Exception>()
         {
-          @Override public Integer call(
+          @Override
+          public Integer call(
             final Object x)
           {
             return 23;
@@ -136,13 +150,15 @@ public final class NoneTest
         }));
   }
 
-  @Test(expected = NullCheckException.class) public void testNull_0()
+  @Test(expected = NullCheckException.class)
+  public void testNull_0()
   {
     Option.none().accept(
       (OptionVisitorType<Object, Object>) TestUtilities.actuallyNull());
   }
 
-  @Test(expected = NullCheckException.class) public void testNull_2()
+  @Test(expected = NullCheckException.class)
+  public void testNull_2()
     throws Exception
   {
     Option.none().acceptPartial(
@@ -150,12 +166,14 @@ public final class NoneTest
         .actuallyNull());
   }
 
-  @Test public void testToString()
+  @Test
+  public void testToString()
   {
     Assert.assertEquals(Option.none().toString(), Option.none().toString());
   }
 
-  @Test public void testNoneMapProcedure_0()
+  @Test
+  public void testNoneMapProcedure_0()
     throws Exception
   {
     final AtomicInteger i = new AtomicInteger(0);
@@ -163,7 +181,8 @@ public final class NoneTest
     none.map_(
       new ProcedureType<Integer>()
       {
-        @Override public void call(final Integer x)
+        @Override
+        public void call(final Integer x)
         {
           i.set(x.intValue());
         }
@@ -172,7 +191,8 @@ public final class NoneTest
     Assert.assertEquals(0, i.get());
   }
 
-  @Test public void testNoneMapPartialProcedure_0()
+  @Test
+  public void testNoneMapPartialProcedure_0()
     throws Exception
   {
     final AtomicInteger i = new AtomicInteger(0);
@@ -180,7 +200,8 @@ public final class NoneTest
     none.mapPartial_(
       new PartialProcedureType<Integer, IOException>()
       {
-        @Override public void call(final Integer x)
+        @Override
+        public void call(final Integer x)
           throws IOException
         {
           i.set(x.intValue());
@@ -190,7 +211,8 @@ public final class NoneTest
     Assert.assertEquals(0, i.get());
   }
 
-  @Test public void testNoneMapPartialProcedure_1()
+  @Test
+  public void testNoneMapPartialProcedure_1()
     throws Exception
   {
     final AtomicInteger i = new AtomicInteger(0);
@@ -198,9 +220,11 @@ public final class NoneTest
     none.mapPartial_(
       new PartialProcedureType<Integer, IOException>()
       {
-        @Override public void call(final Integer x)
+        @Override
+        public void call(final Integer x)
           throws IOException
         {
+          Assert.fail();
           throw new IOException();
         }
       });
@@ -213,6 +237,7 @@ public final class NoneTest
     final AtomicInteger i = new AtomicInteger(0);
     final OptionType<Integer> none = Option.none();
     none.mapPartial_(null);
+    Assert.fail();
   }
 
   @Test(expected = NullCheckException.class)
@@ -222,5 +247,6 @@ public final class NoneTest
     final AtomicInteger i = new AtomicInteger(0);
     final OptionType<Integer> none = Option.none();
     none.map_(null);
+    Assert.fail();
   }
 }

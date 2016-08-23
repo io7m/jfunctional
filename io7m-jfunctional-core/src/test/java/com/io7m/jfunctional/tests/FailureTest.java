@@ -69,6 +69,7 @@ import com.io7m.junreachable.UnreachableCodeException;
       .accept(
         (TryVisitorType<Integer, Object, Integer>) TestUtilities
           .actuallyNull());
+    Assert.fail();
   }
 
   @Test(expected = NullCheckException.class) public void testNull_2()
@@ -79,6 +80,7 @@ import com.io7m.junreachable.UnreachableCodeException;
       .acceptPartial(
         (TryPartialVisitorType<Integer, Object, Integer, Exception>) TestUtilities
           .actuallyNull());
+    Assert.fail();
   }
 
   @Test public void testSomeAccept_0()
