@@ -70,7 +70,7 @@ public final class NoneTest
   }
 
   @Test
-  public void testNoneAccept_0()
+  public void testNoneAccept0()
   {
     Assert.assertEquals(
       Option.none().accept(
@@ -93,7 +93,7 @@ public final class NoneTest
   }
 
   @Test
-  public void testNoneAccept_1()
+  public void testNoneAccept1()
     throws Exception
   {
     Assert.assertEquals(
@@ -117,7 +117,7 @@ public final class NoneTest
   }
 
   @Test
-  public void testNoneMap_0()
+  public void testNoneMap0()
     throws Exception
   {
     Assert.assertEquals(
@@ -134,7 +134,7 @@ public final class NoneTest
   }
 
   @Test
-  public void testNoneMap_1()
+  public void testNoneMap1()
     throws Exception
   {
     Assert.assertEquals(
@@ -151,7 +151,7 @@ public final class NoneTest
   }
 
   @Test(expected = NullCheckException.class)
-  public void testNull_0()
+  public void testNull0()
   {
     Option.none().accept(
       (OptionVisitorType<Object, Object>) TestUtilities.actuallyNull());
@@ -173,7 +173,7 @@ public final class NoneTest
   }
 
   @Test
-  public void testNoneMapProcedure_0()
+  public void testNoneMapProcedure0()
     throws Exception
   {
     final AtomicInteger i = new AtomicInteger(0);
@@ -192,7 +192,7 @@ public final class NoneTest
   }
 
   @Test
-  public void testNoneMapPartialProcedure_0()
+  public void testNoneMapPartialProcedure0()
     throws Exception
   {
     final AtomicInteger i = new AtomicInteger(0);
@@ -212,7 +212,7 @@ public final class NoneTest
   }
 
   @Test
-  public void testNoneMapPartialProcedure_1()
+  public void testNoneMapPartialProcedure1()
     throws Exception
   {
     final AtomicInteger i = new AtomicInteger(0);

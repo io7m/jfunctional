@@ -72,7 +72,7 @@ public final class SomeTest
     Option.some(TestUtilities.actuallyNull());
   }
 
-  @Test(expected = NullCheckException.class) public void testNull_1()
+  @Test(expected = NullCheckException.class) public void testNull1()
   {
     Option.some(23).accept(
       (OptionVisitorType<Integer, Integer>) TestUtilities.actuallyNull());
@@ -106,7 +106,7 @@ public final class SomeTest
         }));
   }
 
-  @Test public void testSomeAccept_1()
+  @Test public void testSomeAccept1()
     throws Exception
   {
     Assert.assertEquals(
@@ -148,7 +148,7 @@ public final class SomeTest
         }));
   }
 
-  @Test public void testSomeMap_1()
+  @Test public void testSomeMap1()
     throws Exception
   {
     Assert.assertEquals(
@@ -169,7 +169,7 @@ public final class SomeTest
       Option.some(23).toString(), Option.some(24).toString());
   }
 
-  @Test public void testSomeMapProcedure_0()
+  @Test public void testSomeMapProcedure0()
     throws Exception
   {
     final AtomicInteger i = new AtomicInteger(0);
@@ -186,7 +186,7 @@ public final class SomeTest
     Assert.assertEquals(23, i.get());
   }
 
-  @Test public void testSomeMapPartialProcedure_0()
+  @Test public void testSomeMapPartialProcedure0()
     throws Exception
   {
     final AtomicInteger i = new AtomicInteger(0);
@@ -205,7 +205,7 @@ public final class SomeTest
   }
 
   @Test(expected = IOException.class)
-  public void testSomeMapPartialProcedure_1()
+  public void testSomeMapPartialProcedure1()
     throws Exception
   {
     final AtomicInteger i = new AtomicInteger(0);

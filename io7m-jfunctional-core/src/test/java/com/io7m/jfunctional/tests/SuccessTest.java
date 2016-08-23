@@ -57,12 +57,12 @@ import com.io7m.junreachable.UnreachableCodeException;
         true));
   }
 
-  @Test(expected = NullCheckException.class) public void testNull_0()
+  @Test(expected = NullCheckException.class) public void testNull0()
   {
     Try.success(TestUtilities.actuallyNull());
   }
 
-  @Test(expected = NullCheckException.class) public void testNull_1()
+  @Test(expected = NullCheckException.class) public void testNull1()
   {
     Try
       .success(23)
@@ -81,7 +81,7 @@ import com.io7m.junreachable.UnreachableCodeException;
           .actuallyNull());
   }
 
-  @Test public void testSomeAccept_0()
+  @Test public void testSomeAccept0()
   {
     Assert.assertEquals(
       (Integer) 23,
@@ -100,7 +100,7 @@ import com.io7m.junreachable.UnreachableCodeException;
       }));
   }
 
-  @Test public void testSomeAccept_1()
+  @Test public void testSomeAccept1()
     throws Exception
   {
     Assert.assertEquals(
@@ -123,7 +123,7 @@ import com.io7m.junreachable.UnreachableCodeException;
         }));
   }
 
-  @Test public void testSomeGet_0()
+  @Test public void testSomeGet0()
   {
     final Success<Object, Integer> s =
       (Success<Object, Integer>) Try.success(23);

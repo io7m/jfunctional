@@ -27,25 +27,25 @@ import com.io7m.jnull.NullCheckException;
 
 @SuppressWarnings({ "boxing", "static-method" }) @EqualityReference public final class TryTest
 {
-  @Test public void testFailure_0()
+  @Test public void testFailure0()
   {
     final Failure<Integer, ?> s = (Failure<Integer, ?>) Try.failure(23);
     Assert.assertEquals((Integer) 23, s.get());
   }
 
-  @Test(expected = NullCheckException.class) public void testNull_0()
+  @Test(expected = NullCheckException.class) public void testNull0()
   {
     Try.success(TestUtilities.actuallyNull());
     Assert.fail();
   }
 
-  @Test(expected = NullCheckException.class) public void testNull_1()
+  @Test(expected = NullCheckException.class) public void testNull1()
   {
     Try.failure(TestUtilities.actuallyNull());
     Assert.fail();
   }
 
-  @Test public void testSuccess_0()
+  @Test public void testSuccess0()
   {
     final Success<?, Integer> s = (Success<?, Integer>) Try.success(23);
     Assert.assertEquals((Integer) 23, s.get());
