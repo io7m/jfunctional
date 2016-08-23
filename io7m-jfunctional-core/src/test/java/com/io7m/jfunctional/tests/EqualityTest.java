@@ -34,7 +34,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-@SuppressWarnings("static-method")
 @EqualityReference
 public final class EqualityTest
 {
@@ -44,17 +43,17 @@ public final class EqualityTest
     classLoadersList.add(ClasspathHelper.contextClassLoader());
     classLoadersList.add(ClasspathHelper.staticClassLoader());
 
-    return new Reflections(new ConfigurationBuilder()
-                             .setScanners(
-                               new SubTypesScanner(false /* don't exclude Object.class */),
-                               new ResourcesScanner())
-                             .setUrls(
-                               ClasspathHelper.forClassLoader(classLoadersList
-                                                                .toArray(new ClassLoader[0])))
-                             .filterInputsBy(
-                               new FilterBuilder().include(FilterBuilder
-                                                             .prefix(
-                                                               "com.io7m.jfunctional"))));
+    return new Reflections(
+      new ConfigurationBuilder()
+        .setScanners(
+          new SubTypesScanner(false /* don't exclude Object.class */),
+          new ResourcesScanner())
+        .setUrls(
+          ClasspathHelper.forClassLoader(
+            classLoadersList.toArray(new ClassLoader[0])))
+        .filterInputsBy(
+          new FilterBuilder().include(
+            FilterBuilder.prefix("com.io7m.jfunctional"))));
   }
 
   @Test
