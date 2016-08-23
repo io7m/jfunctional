@@ -16,36 +16,41 @@
 
 package com.io7m.jfunctional;
 
-import java.io.Serializable;
-
 import com.io7m.jequality.annotations.EqualityStructural;
 import com.io7m.jnull.NullCheck;
 import com.io7m.jnull.Nullable;
 
+import java.io.Serializable;
+
 /**
  * Immutable generic pair type.
- * 
- * @param <A>
- *          The type of left values.
- * @param <B>
- *          The type of right values.
+ *
+ * @param <A> The type of left values.
+ * @param <B> The type of right values.
  */
 
-@EqualityStructural public final class Pair<A, B> implements Serializable
+@EqualityStructural
+public final class Pair<A, B> implements Serializable
 {
   private static final long serialVersionUID = 5737112071204239831L;
+  private final A left;
+  private final B right;
+  private Pair(
+    final A in_left,
+    final B in_right)
+  {
+    this.left = NullCheck.notNull(in_left, "Left");
+    this.right = NullCheck.notNull(in_right, "Right");
+  }
 
   /**
-   * Return a new pair <code>(left, right)</code>.
-   * 
-   * @param <A>
-   *          The type of left values.
-   * @param <B>
-   *          The type of right values.
-   * @param left
-   *          The left value
-   * @param right
-   *          The right value
+   * Return a new pair {@code (left, right)}.
+   *
+   * @param <A>   The type of left values.
+   * @param <B>   The type of right values.
+   * @param left  The left value
+   * @param right The right value
+   *
    * @return A new pair
    */
 
@@ -56,18 +61,8 @@ import com.io7m.jnull.Nullable;
     return new Pair<A, B>(left, right);
   }
 
-  private final A left;
-  private final B right;
-
-  private Pair(
-    final A in_left,
-    final B in_right)
-  {
-    this.left = NullCheck.notNull(in_left, "Left");
-    this.right = NullCheck.notNull(in_right, "Right");
-  }
-
-  @Override public boolean equals(
+  @Override
+  public boolean equals(
     final @Nullable Object obj)
   {
     if (this == obj) {
@@ -101,7 +96,8 @@ import com.io7m.jnull.Nullable;
     return this.right;
   }
 
-  @Override public int hashCode()
+  @Override
+  public int hashCode()
   {
     final int prime = 31;
     int result = 1;
@@ -110,7 +106,8 @@ import com.io7m.jnull.Nullable;
     return result;
   }
 
-  @Override public String toString()
+  @Override
+  public String toString()
   {
     final StringBuilder builder = new StringBuilder();
     builder.append("[Pair ");

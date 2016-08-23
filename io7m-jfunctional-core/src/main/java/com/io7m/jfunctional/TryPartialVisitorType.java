@@ -18,16 +18,12 @@ package com.io7m.jfunctional;
 
 /**
  * The type of {@link TryType} visitors.
- * 
- * @param <F>
- *          The type of failure values
- * @param <S>
- *          The type of success values
- * @param <U>
- *          The type of returned values
- * @param <E>
- *          The type of thrown exceptions
- * 
+ *
+ * @param <F> The type of failure values
+ * @param <S> The type of success values
+ * @param <U> The type of returned values
+ * @param <E> The type of thrown exceptions
+ *
  * @see TryType#acceptPartial(TryPartialVisitorType)
  */
 
@@ -35,12 +31,12 @@ public interface TryPartialVisitorType<F, S, U, E extends Throwable>
 {
   /**
    * Visit a value of type {@link Success}.
-   * 
-   * @param f
-   *          The failure value
-   * @return A value of type <code>U</code>
-   * @throws E
-   *           If required
+   *
+   * @param f The failure value
+   *
+   * @return A value of type {@code U}
+   *
+   * @throws E If required
    */
 
   U failure(
@@ -49,12 +45,12 @@ public interface TryPartialVisitorType<F, S, U, E extends Throwable>
 
   /**
    * Visit a value of type {@link Success}.
-   * 
-   * @param s
-   *          The success value
-   * @return A value of type <code>U</code>
-   * @throws E
-   *           If required
+   *
+   * @param s The success value
+   *
+   * @return A value of type {@code U}
+   *
+   * @throws E If required
    */
 
   U success(

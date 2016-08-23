@@ -20,25 +20,22 @@ package com.io7m.jfunctional;
  * <p>
  * Non-dependent unary partial function type.
  * </p>
- * 
- * @param <A>
- *          The type of the domain
- * @param <B>
- *          The type of the codomain
- * @param <E>
- *          The type of exceptions raised
+ *
+ * @param <A> The type of the domain
+ * @param <B> The type of the codomain
+ * @param <E> The type of exceptions raised
  */
 
 public interface PartialFunctionType<A, B, E extends Throwable>
 {
   /**
    * Evaluate the function with the given argument.
-   * 
-   * @param x
-   *          The argument
-   * @throws E
-   *           If required
-   * @return A value of type <code>B</code>
+   *
+   * @param x The argument
+   *
+   * @return A value of type {@code B}
+   *
+   * @throws E If required
    */
 
   B call(

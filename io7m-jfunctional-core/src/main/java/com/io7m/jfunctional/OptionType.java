@@ -26,10 +26,11 @@ import java.io.Serializable;
  * @param <T> The type of values.
  */
 
-@EqualityStructural public interface OptionType<T> extends Serializable
+@EqualityStructural
+public interface OptionType<T> extends Serializable
 {
   /**
-   * <p> If this value is <code>Some(x)</code>, evaluate {@code p(x)}.
+   * <p> If this value is {@code Some(x)}, evaluate {@code p(x)}.
    * Otherwise, do nothing. </p>
    *
    * @param p The procedure
@@ -40,7 +41,7 @@ import java.io.Serializable;
   void map_(final ProcedureType<T> p);
 
   /**
-   * <p> If this value is <code>Some(x)</code>, evaluate {@code p(x)}.
+   * <p> If this value is {@code Some(x)}, evaluate {@code p(x)}.
    * Otherwise, do nothing. </p>
    *
    * @param p   The procedure
@@ -75,7 +76,7 @@ import java.io.Serializable;
    *
    * @return The value returned by the visitor.
    *
-   * @throws E If the visitor throws <code>E</code>.
+   * @throws E If the visitor throws {@code E}.
    */
 
   <U, E extends Throwable> U acceptPartial(
@@ -83,41 +84,41 @@ import java.io.Serializable;
     throws E;
 
   /**
-   * @return <code>true</code> if the current value is {@link None}.
+   * @return {@code true} if the current value is {@link None}.
    */
 
   boolean isNone();
 
   /**
-   * @return <code>true</code> if the current value is {@link Some}.
+   * @return {@code true} if the current value is {@link Some}.
    */
 
   boolean isSome();
 
   /**
-   * <p> If this value is <code>Some(x)</code>, return {@link Option#of(Object)}
-   * with <code>f(x)</code>. Otherwise, return {@link None}. </p>
+   * <p> If this value is {@code Some(x)}, return {@link Option#of(Object)}
+   * with {@code f(x)}. Otherwise, return {@link None}. </p>
    *
    * @param <U> The type of returned values.
    * @param f   The map function.
    *
-   * @return An optional value of type <code>U</code>.
+   * @return An optional value of type {@code U}.
    */
 
   <U> OptionType<U> map(
     FunctionType<T, U> f);
 
   /**
-   * <p> If this value is <code>Some(x)</code>, return {@link Option#of(Object)}
-   * with <code>f(x)</code>. Otherwise, return {@link None}. </p>
+   * <p> If this value is {@code Some(x)}, return {@link Option#of(Object)}
+   * with {@code f(x)}. Otherwise, return {@link None}. </p>
    *
    * @param <E> The type of exceptions raised.
    * @param <U> The type of returned values.
    * @param f   The map function.
    *
-   * @return An optional value of type <code>U</code>.
+   * @return An optional value of type {@code U}.
    *
-   * @throws E If <code>f</code> throws <code>E</code>.
+   * @throws E If {@code f} throws {@code E}.
    */
 
   <U, E extends Throwable> OptionType<U> mapPartial(

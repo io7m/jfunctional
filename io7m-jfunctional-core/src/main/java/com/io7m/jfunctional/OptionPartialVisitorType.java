@@ -18,14 +18,11 @@ package com.io7m.jfunctional;
 
 /**
  * The type of partial {@link OptionType} visitors.
- * 
- * @param <T>
- *          The type of values
- * @param <U>
- *          The type of returned values
- * @param <E>
- *          The type of exceptions raised
- * 
+ *
+ * @param <T> The type of values
+ * @param <U> The type of returned values
+ * @param <E> The type of exceptions raised
+ *
  * @see OptionType#acceptPartial(OptionPartialVisitorType)
  */
 
@@ -33,12 +30,12 @@ public interface OptionPartialVisitorType<T, U, E extends Throwable>
 {
   /**
    * Visit a value of type {@link None}.
-   * 
-   * @param n
-   *          The nonexistent value
-   * @return A value of type <code>U</code>
-   * @throws E
-   *           If required
+   *
+   * @param n The nonexistent value
+   *
+   * @return A value of type {@code U}
+   *
+   * @throws E If required
    */
 
   U none(
@@ -47,12 +44,12 @@ public interface OptionPartialVisitorType<T, U, E extends Throwable>
 
   /**
    * Visit a value of type {@link Some}.
-   * 
-   * @param s
-   *          The value
-   * @return A value of type <code>U</code>
-   * @throws E
-   *           If required
+   *
+   * @param s The value
+   *
+   * @return A value of type {@code U}
+   *
+   * @throws E If required
    */
 
   U some(

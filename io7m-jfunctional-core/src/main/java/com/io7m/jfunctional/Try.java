@@ -23,22 +23,26 @@ import com.io7m.junreachable.UnreachableCodeException;
  * <p>
  * Constructor functions for computations that can fail.
  * </p>
- * 
+ *
  * @see TryType
  */
 
-@EqualityReference public final class Try
+@EqualityReference
+public final class Try
 {
+  private Try()
+  {
+    throw new UnreachableCodeException();
+  }
+
   /**
-   * Fail trivially, yielding <code>x</code>.
-   * 
-   * @param x
-   *          The result
-   * @return A computation that yields <code>x</code>.
-   * @param <F>
-   *          The type of failure values.
-   * @param <S>
-   *          The type of success values.
+   * Fail trivially, yielding {@code x}.
+   *
+   * @param x   The result
+   * @param <F> The type of failure values.
+   * @param <S> The type of success values.
+   *
+   * @return A computation that yields {@code x}.
    */
 
   public static <F, S> TryType<F, S> failure(
@@ -48,25 +52,18 @@ import com.io7m.junreachable.UnreachableCodeException;
   }
 
   /**
-   * Succeed trivially, yielding <code>x</code>.
-   * 
-   * @param x
-   *          The result
-   * @return A computation that yields <code>x</code>.
-   * @param <F>
-   *          The type of failure values.
-   * @param <S>
-   *          The type of success values.
+   * Succeed trivially, yielding {@code x}.
+   *
+   * @param x   The result
+   * @param <F> The type of failure values.
+   * @param <S> The type of success values.
+   *
+   * @return A computation that yields {@code x}.
    */
 
   public static <F, S> TryType<F, S> success(
     final S x)
   {
     return Success.success(x);
-  }
-
-  private Try()
-  {
-    throw new UnreachableCodeException();
   }
 }

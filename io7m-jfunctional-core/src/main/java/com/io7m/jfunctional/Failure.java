@@ -35,6 +35,13 @@ import com.io7m.jnull.Nullable;
 public final class Failure<F, S> implements TryType<F, S>
 {
   private static final long serialVersionUID = -4218541696685737451L;
+  private final F x;
+
+  private Failure(
+    final F in_x)
+  {
+    this.x = NullCheck.notNull(in_x, "Failure value");
+  }
 
   /**
    * Produce a new failure value.
@@ -52,14 +59,6 @@ public final class Failure<F, S> implements TryType<F, S>
     final F x)
   {
     return new Failure<F, S>(x);
-  }
-
-  private final F x;
-
-  private Failure(
-    final F in_x)
-  {
-    this.x = NullCheck.notNull(in_x, "Failure value");
   }
 
   @Override

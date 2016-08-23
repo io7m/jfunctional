@@ -20,21 +20,19 @@ package com.io7m.jfunctional;
  * <p>
  * Non-dependent unary function type.
  * </p>
- * 
- * @param <A>
- *          The type of the domain
- * @param <B>
- *          The type of the codomain
+ *
+ * @param <A> The type of the domain
+ * @param <B> The type of the codomain
  */
 
 public interface FunctionType<A, B>
 {
   /**
    * Evaluate the function with the given argument.
-   * 
-   * @param x
-   *          The argument
-   * @return A value of type <code>B</code>
+   *
+   * @param x The argument
+   *
+   * @return A value of type {@code B}
    */
 
   B call(

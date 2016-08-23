@@ -30,14 +30,18 @@ import java.io.Serializable;
 @EqualityStructural
 public final class Unit implements Serializable
 {
-  private static final long serialVersionUID = -9037394631765247295L;
-  private static final Unit UNIT = new Unit();
-
   /**
    * The hash code for the {@link Unit} type.
    */
 
   public static final int UNIT_HASH_CODE = 0xFACECAFE;
+  private static final long serialVersionUID = -9037394631765247295L;
+  private static final Unit UNIT = new Unit();
+
+  private Unit()
+  {
+
+  }
 
   /**
    * @return The unit value
@@ -46,11 +50,6 @@ public final class Unit implements Serializable
   public static Unit unit()
   {
     return Unit.UNIT;
-  }
-
-  private Unit()
-  {
-
   }
 
   @Override

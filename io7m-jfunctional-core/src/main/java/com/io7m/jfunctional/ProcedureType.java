@@ -19,21 +19,19 @@ package com.io7m.jfunctional;
 /**
  * <p>
  * Non-dependent unary function type, equivalent to
- * <code>Function&lt;A, Unit&gt;</code> but substituting <code>void</code> for
- * <code>Unit</code> to avoid allocating useless objects.
+ * {@code Function<A, Unit>} but substituting {@code void} for
+ * {@code Unit} to avoid allocating useless objects.
  * </p>
- * 
- * @param <A>
- *          The type of the domain
+ *
+ * @param <A> The type of the domain
  */
 
 public interface ProcedureType<A>
 {
   /**
    * Evaluate the procedure with the given argument.
-   * 
-   * @param x
-   *          The argument
+   *
+   * @param x The argument
    */
 
   void call(

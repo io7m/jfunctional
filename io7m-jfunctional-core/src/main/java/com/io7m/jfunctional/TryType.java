@@ -20,26 +20,23 @@ import java.io.Serializable;
 
 /**
  * <p>
- * The type of computations that can succeed and yield <code>S</code>, or fail
- * and yield <code>F</code>.
+ * The type of computations that can succeed and yield {@code S}, or fail
+ * and yield {@code F}.
  * </p>
- * 
- * @param <S>
- *          The type of success values.
- * @param <F>
- *          The type of failure values.
+ *
+ * @param <S> The type of success values.
+ * @param <F> The type of failure values.
  */
 
 public interface TryType<F, S> extends Serializable
 {
   /**
    * Accept a visitor.
-   * 
-   * @param v
-   *          The visitor
+   *
+   * @param v   The visitor
+   * @param <U> The type of values returned by the visitor.
+   *
    * @return The value returned by the visitor.
-   * @param <U>
-   *          The type of values returned by the visitor.
    */
 
   <U> U accept(
@@ -47,16 +44,14 @@ public interface TryType<F, S> extends Serializable
 
   /**
    * Accept a partial visitor.
-   * 
-   * @param v
-   *          The visitor
+   *
+   * @param v   The visitor
+   * @param <U> The type of values returned by the visitor.
+   * @param <E> The type of exceptions thrown by the visitor.
+   *
    * @return The value returned by the visitor.
-   * @param <U>
-   *          The type of values returned by the visitor.
-   * @param <E>
-   *          The type of exceptions thrown by the visitor.
-   * @throws E
-   *           If the visitor throws <code>E</code>.
+   *
+   * @throws E If the visitor throws {@code E}.
    */
 
   <U, E extends Throwable> U acceptPartial(

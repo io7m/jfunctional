@@ -18,12 +18,10 @@ package com.io7m.jfunctional;
 
 /**
  * The type of {@link OptionType} visitors.
- * 
- * @param <T>
- *          The type of values
- * @param <U>
- *          The type of returned values
- * 
+ *
+ * @param <T> The type of values
+ * @param <U> The type of returned values
+ *
  * @see OptionType#accept(OptionVisitorType)
  */
 
@@ -31,10 +29,10 @@ public interface OptionVisitorType<T, U>
 {
   /**
    * Visit a value of type {@link None}.
-   * 
-   * @param n
-   *          The nonexistent value
-   * @return A value of type <code>U</code>
+   *
+   * @param n The nonexistent value
+   *
+   * @return A value of type {@code U}
    */
 
   U none(
@@ -42,10 +40,10 @@ public interface OptionVisitorType<T, U>
 
   /**
    * Visit a value of type {@link Some}.
-   * 
-   * @param s
-   *          The value
-   * @return A value of type <code>U</code>
+   *
+   * @param s The value
+   *
+   * @return A value of type {@code U}
    */
 
   U some(

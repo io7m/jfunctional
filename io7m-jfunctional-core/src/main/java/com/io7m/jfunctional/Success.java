@@ -35,6 +35,13 @@ import com.io7m.jnull.Nullable;
 public final class Success<F, S> implements TryType<F, S>
 {
   private static final long serialVersionUID = 1087956509094272540L;
+  private final S x;
+
+  private Success(
+    final S in_x)
+  {
+    this.x = NullCheck.notNull(in_x, "Success value");
+  }
 
   /**
    * @param x   The actual value
@@ -50,14 +57,6 @@ public final class Success<F, S> implements TryType<F, S>
     final S x)
   {
     return new Success<F, S>(x);
-  }
-
-  private final S x;
-
-  private Success(
-    final S in_x)
-  {
-    this.x = NullCheck.notNull(in_x, "Success value");
   }
 
   @Override
