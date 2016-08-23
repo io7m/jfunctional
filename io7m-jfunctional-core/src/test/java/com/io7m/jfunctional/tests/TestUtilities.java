@@ -31,7 +31,7 @@ public final class TestUtilities
   private static final Object z = null;
 
   @SuppressWarnings({"null", "unchecked"})
-  static
+  public static
   @NonNull
   <A>
   A
