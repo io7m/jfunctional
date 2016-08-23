@@ -16,6 +16,8 @@
 
 package com.io7m.jfunctional.documentation;
 
+import com.io7m.junreachable.UnreachableCodeException;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -26,6 +28,15 @@ import java.net.URL;
 
 public final class FDocumentation
 {
+  private FDocumentation()
+  {
+    throw new UnreachableCodeException();
+  }
+
+  /**
+   * @return The URI of the documentation
+   */
+
   public static URI getDocumentationXMLLocation()
   {
     try {
