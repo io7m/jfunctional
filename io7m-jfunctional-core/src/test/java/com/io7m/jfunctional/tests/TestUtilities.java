@@ -33,9 +33,7 @@ public final class TestUtilities
   @SuppressWarnings({"null", "unchecked"})
   public static
   @NonNull
-  <A>
-  A
-  actuallyNull()
+  <A> A actuallyNull()
   {
     return (A) TestUtilities.z;
   }
