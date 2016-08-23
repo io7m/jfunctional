@@ -188,7 +188,7 @@ public final class NoneTest
         }
       });
 
-    Assert.assertEquals(0, i.get());
+    Assert.assertEquals(0L, (long) i.get());
   }
 
   @Test
@@ -208,14 +208,13 @@ public final class NoneTest
         }
       });
 
-    Assert.assertEquals(0, i.get());
+    Assert.assertEquals(0L, (long) i.get());
   }
 
   @Test
   public void testNoneMapPartialProcedure1()
     throws Exception
   {
-    final AtomicInteger i = new AtomicInteger(0);
     final OptionType<Integer> none = Option.none();
     none.mapPartial_(
       new PartialProcedureType<Integer, IOException>()
@@ -234,7 +233,6 @@ public final class NoneTest
   public void testNoneMapPartialProcedureNull()
     throws Exception
   {
-    final AtomicInteger i = new AtomicInteger(0);
     final OptionType<Integer> none = Option.none();
     none.<Exception>mapPartial_(null);
     Assert.fail();
@@ -244,7 +242,6 @@ public final class NoneTest
   public void testNoneMapProcedureNull()
     throws Exception
   {
-    final AtomicInteger i = new AtomicInteger(0);
     final OptionType<Integer> none = Option.none();
     none.map_(null);
     Assert.fail();

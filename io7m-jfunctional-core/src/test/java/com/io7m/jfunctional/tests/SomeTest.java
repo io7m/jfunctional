@@ -101,7 +101,7 @@ public final class SomeTest
           @Override public Integer some(
             final Some<Integer> s)
           {
-            return s.get() / 2;
+            return s.get().intValue() / 2;
           }
         }));
   }
@@ -122,7 +122,7 @@ public final class SomeTest
           @Override public Integer some(
             final Some<Integer> s)
           {
-            return s.get() / 2;
+            return s.get().intValue() / 2;
           }
         }));
   }
@@ -143,7 +143,7 @@ public final class SomeTest
           @Override public Integer call(
             final Integer x)
           {
-            return x / 2;
+            return x.intValue() / 2;
           }
         }));
   }
@@ -158,7 +158,7 @@ public final class SomeTest
           @Override public Integer call(
             final Integer x)
           {
-            return x / 2;
+            return x.intValue() / 2;
           }
         }));
   }
@@ -183,7 +183,7 @@ public final class SomeTest
         }
       });
 
-    Assert.assertEquals(23, i.get());
+    Assert.assertEquals(23L, (long) i.get());
   }
 
   @Test public void testSomeMapPartialProcedure0()
@@ -201,14 +201,13 @@ public final class SomeTest
         }
       });
 
-    Assert.assertEquals(23, i.get());
+    Assert.assertEquals(23L, (long) i.get());
   }
 
   @Test(expected = IOException.class)
   public void testSomeMapPartialProcedure1()
     throws Exception
   {
-    final AtomicInteger i = new AtomicInteger(0);
     final OptionType<Integer> some = Option.some(23);
     some.mapPartial_(
       new PartialProcedureType<Integer, IOException>()
@@ -226,7 +225,6 @@ public final class SomeTest
   public void testSomeMapPartialProcedureNull()
     throws Throwable
   {
-    final AtomicInteger i = new AtomicInteger(0);
     final OptionType<Integer> some = Option.some(23);
     some.mapPartial_(null);
     Assert.fail();
@@ -236,7 +234,6 @@ public final class SomeTest
   public void testSomeMapProcedureNull()
     throws Exception
   {
-    final AtomicInteger i = new AtomicInteger(0);
     final OptionType<Integer> some = Option.some(23);
     some.map_(null);
     Assert.fail();
