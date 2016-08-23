@@ -1,5 +1,5 @@
 /*
- * Copyright © 2014 <code@io7m.com> http://io7m.com
+ * Copyright © 2016 <code@io7m.com> http://io7m.com
  * 
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -18,15 +18,26 @@ package com.io7m.jfunctional.tests;
 
 import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jnull.NonNull;
+import com.io7m.junreachable.UnreachableCodeException;
 
-@EqualityReference public final class TestUtilities
+/**
+ * Test utilities.
+ */
+
+@EqualityReference
+public final class TestUtilities
 {
   private static final Object z = null;
 
-  @SuppressWarnings({ "null", "unchecked" }) static @NonNull
-    <A>
-    A
-    actuallyNull()
+  private TestUtilities()
+  {
+    throw new UnreachableCodeException();
+  }
+
+  @SuppressWarnings({"null", "unchecked"})
+  public static
+  @NonNull
+  <A> A actuallyNull()
   {
     return (A) TestUtilities.z;
   }

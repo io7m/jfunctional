@@ -1,5 +1,5 @@
 /*
- * Copyright © 2014 <code@io7m.com> http://io7m.com
+ * Copyright © 2016 <code@io7m.com> http://io7m.com
  * 
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -16,9 +16,6 @@
 
 package com.io7m.jfunctional.tests;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jequality.validator.AnnotationRequirement;
 import com.io7m.jequality.validator.EqualityValidator;
@@ -32,10 +29,19 @@ import com.io7m.jfunctional.TryType;
 import com.io7m.jfunctional.TryVisitorType;
 import com.io7m.jnull.NullCheckException;
 import com.io7m.junreachable.UnreachableCodeException;
+import org.junit.Assert;
+import org.junit.Test;
 
-@SuppressWarnings({ "boxing", "unchecked", "static-method" }) @EqualityReference public final class SuccessTest
+/**
+ * Tests for Success.
+ */
+
+@SuppressWarnings({"boxing", "unchecked", "static-method"})
+@EqualityReference
+public final class SuccessTest
 {
-  @Test public void testEquals()
+  @Test
+  public void testEquals()
   {
     Assert.assertEquals(Try.success(23), Try.success(23));
 
@@ -48,7 +54,8 @@ import com.io7m.junreachable.UnreachableCodeException;
     Assert.assertNotEquals(Try.success(23), Try.failure(23));
   }
 
-  @Test public void testEqualsType()
+  @Test
+  public void testEqualsType()
   {
     Assert.assertEquals(ValidatorResult.VALIDATION_OK, EqualityValidator
       .validateClass(
@@ -57,12 +64,14 @@ import com.io7m.junreachable.UnreachableCodeException;
         true));
   }
 
-  @Test(expected = NullCheckException.class) public void testNull_0()
+  @Test(expected = NullCheckException.class)
+  public void testNull0()
   {
     Try.success(TestUtilities.actuallyNull());
   }
 
-  @Test(expected = NullCheckException.class) public void testNull_1()
+  @Test(expected = NullCheckException.class)
+  public void testNull1()
   {
     Try
       .success(23)
@@ -71,7 +80,8 @@ import com.io7m.junreachable.UnreachableCodeException;
           .actuallyNull());
   }
 
-  @Test(expected = NullCheckException.class) public void testNull_2()
+  @Test(expected = NullCheckException.class)
+  public void testNull_2()
     throws Exception
   {
     Try
@@ -81,18 +91,22 @@ import com.io7m.junreachable.UnreachableCodeException;
           .actuallyNull());
   }
 
-  @Test public void testSomeAccept_0()
+  @Test
+  public void testSomeAccept0()
   {
     Assert.assertEquals(
       (Integer) 23,
-      Try.success(46).accept(new TryVisitorType<Object, Integer, Integer>() {
-        @Override public Integer failure(
+      Try.success(46).accept(new TryVisitorType<Object, Integer, Integer>()
+      {
+        @Override
+        public Integer failure(
           final Failure<Object, Integer> f)
         {
           throw new UnreachableCodeException();
         }
 
-        @Override public Integer success(
+        @Override
+        public Integer success(
           final Success<Object, Integer> s)
         {
           return s.get() / 2;
@@ -100,21 +114,25 @@ import com.io7m.junreachable.UnreachableCodeException;
       }));
   }
 
-  @Test public void testSomeAccept_1()
+  @Test
+  public void testSomeAccept1()
     throws Exception
   {
     Assert.assertEquals(
       (Integer) 23,
       Try.success(46).acceptPartial(
-        new TryPartialVisitorType<Object, Integer, Integer, Exception>() {
-          @Override public Integer failure(
+        new TryPartialVisitorType<Object, Integer, Integer, Exception>()
+        {
+          @Override
+          public Integer failure(
             final Failure<Object, Integer> f)
             throws Exception
           {
             throw new UnreachableCodeException();
           }
 
-          @Override public Integer success(
+          @Override
+          public Integer success(
             final Success<Object, Integer> s)
             throws Exception
           {
@@ -123,14 +141,16 @@ import com.io7m.junreachable.UnreachableCodeException;
         }));
   }
 
-  @Test public void testSomeGet_0()
+  @Test
+  public void testSomeGet0()
   {
     final Success<Object, Integer> s =
       (Success<Object, Integer>) Try.success(23);
     Assert.assertEquals((Integer) 23, s.get());
   }
 
-  @Test public void testToString()
+  @Test
+  public void testToString()
   {
     Assert.assertNotEquals(Try.success(23).toString(), Try
       .success(24)

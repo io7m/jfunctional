@@ -1,5 +1,5 @@
 /*
- * Copyright © 2014 <code@io7m.com> http://io7m.com
+ * Copyright © 2016 <code@io7m.com> http://io7m.com
  * 
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -16,19 +16,25 @@
 
 package com.io7m.jfunctional.tests;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jequality.validator.AnnotationRequirement;
 import com.io7m.jequality.validator.EqualityValidator;
 import com.io7m.jequality.validator.ValidatorResult;
 import com.io7m.jfunctional.Pair;
 import com.io7m.jnull.NullCheckException;
+import org.junit.Assert;
+import org.junit.Test;
 
-@SuppressWarnings({ "boxing", "static-method" }) @EqualityReference public class PairTest
+/**
+ * Tests for Pair.
+ */
+
+@SuppressWarnings({"boxing", "static-method"})
+@EqualityReference
+public final class PairTest
 {
-  @Test public void testCorrect()
+  @Test
+  public void testCorrect()
   {
     final Integer i23 = Integer.valueOf(23);
     assert i23 != null;
@@ -38,7 +44,8 @@ import com.io7m.jnull.NullCheckException;
     Assert.assertEquals("hello", p.getRight());
   }
 
-  @Test public void testEquals()
+  @Test
+  public void testEquals()
   {
     final Integer i32 = Integer.valueOf(32);
     final Integer i23 = Integer.valueOf(23);
@@ -51,15 +58,16 @@ import com.io7m.jnull.NullCheckException;
     final Pair<Integer, Integer> p5 = Pair.pair(i23, i32);
 
     Assert.assertEquals(p0, p0);
-    Assert.assertFalse(p0.equals(null));
-    Assert.assertFalse(p0.equals("hello"));
+    Assert.assertNotEquals(p0, null);
+    Assert.assertNotEquals(p0, "hello");
     Assert.assertFalse(p4.equals(p5));
     Assert.assertFalse(p5.equals(p4));
     Assert.assertEquals(p1, p0);
     Assert.assertEquals(p0, p1);
   }
 
-  @Test public void testEqualsType()
+  @Test
+  public void testEqualsType()
   {
     Assert.assertEquals(ValidatorResult.VALIDATION_OK, EqualityValidator
       .validateClass(
@@ -68,7 +76,8 @@ import com.io7m.jnull.NullCheckException;
         true));
   }
 
-  @Test public void testHashCode()
+  @Test
+  public void testHashCode()
   {
     final Integer i23 = Integer.valueOf(23);
     assert i23 != null;
@@ -78,17 +87,20 @@ import com.io7m.jnull.NullCheckException;
     Assert.assertEquals(p0.hashCode(), p1.hashCode());
   }
 
-  @Test(expected = NullCheckException.class) public void testNull_0()
+  @Test(expected = NullCheckException.class)
+  public void testNull_0()
   {
     Pair.pair(TestUtilities.actuallyNull(), 23);
   }
 
-  @Test(expected = NullCheckException.class) public void testNull_1()
+  @Test(expected = NullCheckException.class)
+  public void testNull_1()
   {
     Pair.pair(23, TestUtilities.actuallyNull());
   }
 
-  @Test public void testStrings()
+  @Test
+  public void testStrings()
   {
     final Integer i23 = Integer.valueOf(23);
     assert i23 != null;

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2014 <code@io7m.com> http://io7m.com
+ * Copyright © 2016 <code@io7m.com> http://io7m.com
  * 
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -16,24 +16,32 @@
 
 package com.io7m.jfunctional.tests;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
+import com.io7m.jequality.annotations.EqualityReference;
+import com.io7m.jfunctional.PartialProcedureType;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.io7m.jequality.annotations.EqualityReference;
-import com.io7m.jfunctional.PartialProcedureType;
+import java.util.concurrent.atomic.AtomicInteger;
 
-@SuppressWarnings({ "null", "static-method" }) @EqualityReference public class PartialProcedureTypeTest
+/**
+ * Tests for PartialProcedure.
+ */
+
+@SuppressWarnings({"null", "static-method"})
+@EqualityReference
+public final class PartialProcedureTypeTest
 {
-  @Test public void testCorrect()
+  @Test
+  public void testCorrect()
     throws Throwable
   {
     final AtomicInteger value = new AtomicInteger(0);
 
     final PartialProcedureType<Integer, Throwable> f =
-      new PartialProcedureType<Integer, Throwable>() {
-        @Override public void call(
+      new PartialProcedureType<Integer, Throwable>()
+      {
+        @Override
+        public void call(
           final Integer x)
         {
           value.addAndGet(x.intValue());

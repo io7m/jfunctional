@@ -1,5 +1,5 @@
 /*
- * Copyright © 2014 <code@io7m.com> http://io7m.com
+ * Copyright © 2016 <code@io7m.com> http://io7m.com
  * 
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -24,24 +24,17 @@ import com.io7m.jnull.Nullable;
  * <p>
  * A computation that has succeeded.
  * </p>
- * 
+ *
+ * @param <F> The type of values returned upon failure.
+ * @param <S> The type of values returned upon success.
+ *
  * @see TryType
- * @param <F>
- *          The type of values returned upon failure.
- * @param <S>
- *          The type of values returned upon success.
  */
 
-@EqualityStructural public final class Success<F, S> implements TryType<F, S>
+@EqualityStructural
+public final class Success<F, S> implements TryType<F, S>
 {
   private static final long serialVersionUID = 1087956509094272540L;
-
-  static <F, S> Success<F, S> success(
-    final S x)
-  {
-    return new Success<F, S>(x);
-  }
-
   private final S x;
 
   private Success(
@@ -50,14 +43,32 @@ import com.io7m.jnull.Nullable;
     this.x = NullCheck.notNull(in_x, "Success value");
   }
 
-  @Override public <U> U accept(
+  /**
+   * @param x   The actual value
+   * @param <F> The type of values returned upon failure.
+   * @param <S> The type of values returned upon success.
+   *
+   * @return A new success value
+   *
+   * @since 1.3.0
+   */
+
+  public static <F, S> Success<F, S> success(
+    final S x)
+  {
+    return new Success<F, S>(x);
+  }
+
+  @Override
+  public <U> U accept(
     final TryVisitorType<F, S, U> v)
   {
     NullCheck.notNull(v, "Visitor");
     return v.success(this);
   }
 
-  @Override public <U, E extends Throwable> U acceptPartial(
+  @Override
+  public <U, E extends Throwable> U acceptPartial(
     final TryPartialVisitorType<F, S, U, E> v)
     throws E
   {
@@ -65,7 +76,8 @@ import com.io7m.jnull.Nullable;
     return v.success(this);
   }
 
-  @Override public boolean equals(
+  @Override
+  public boolean equals(
     final @Nullable Object obj)
   {
     if (this == obj) {
@@ -90,12 +102,14 @@ import com.io7m.jnull.Nullable;
     return this.x;
   }
 
-  @Override public int hashCode()
+  @Override
+  public int hashCode()
   {
     return this.x.hashCode();
   }
 
-  @Override public String toString()
+  @Override
+  public String toString()
   {
     final StringBuilder builder = new StringBuilder();
     builder.append("[Success ");

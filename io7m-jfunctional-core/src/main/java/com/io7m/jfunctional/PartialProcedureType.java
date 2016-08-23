@@ -1,5 +1,5 @@
 /*
- * Copyright © 2014 <code@io7m.com> http://io7m.com
+ * Copyright © 2016 <code@io7m.com> http://io7m.com
  * 
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -17,27 +17,23 @@
 package com.io7m.jfunctional;
 
 /**
- * <p>
- * Non-dependent unary function type, equivalent to
- * <code>PartialFunction&lt;A, Unit, E&gt;</code> but substituting <code>void</code>
- * for <code>Unit</code> to avoid allocating useless objects.
+ * <p> Non-dependent unary function type, equivalent to
+ * {@code PartialFunction<A, Unit, E>} but substituting
+ * {@code void} for {@code Unit} to avoid allocating useless objects.
  * </p>
- * 
- * @param <A>
- *          The type of the domain
- * @param <E>
- *          The type of exceptions raised
+ *
+ * @param <A> The type of the domain
+ * @param <E> The type of exceptions raised
  */
 
 public interface PartialProcedureType<A, E extends Throwable>
 {
   /**
    * Evaluate the procedure with the given argument.
-   * 
-   * @param x
-   *          The argument
-   * @throws E
-   *           If required
+   *
+   * @param x The argument
+   *
+   * @throws E If required
    */
 
   void call(

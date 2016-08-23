@@ -1,5 +1,5 @@
 /*
- * Copyright © 2014 <code@io7m.com> http://io7m.com
+ * Copyright © 2016 <code@io7m.com> http://io7m.com
  * 
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -24,19 +24,25 @@ import com.io7m.junreachable.UnreachableCodeException;
  * <p>
  * Constructor functions for optional values.
  * </p>
- * 
+ *
  * @see OptionType
  */
 
-@EqualityReference public final class Option
+@EqualityReference
+public final class Option
 {
+  private Option()
+  {
+    throw new UnreachableCodeException();
+  }
+
   /**
    * <p>
    * Return {@link None}.
    * </p>
-   * 
-   * @param <T>
-   *          The type of values
+   *
+   * @param <T> The type of values
+   *
    * @return An optional value
    */
 
@@ -47,14 +53,13 @@ import com.io7m.junreachable.UnreachableCodeException;
 
   /**
    * <p>
-   * If <code>x == null</code>, return {@link None}, else return {@link Some}
-   * containing <code>x</code>.
+   * If {@code x == null}, return {@link None}, else return {@link Some}
+   * containing {@code x}.
    * </p>
-   * 
-   * @param <T>
-   *          The type of values
-   * @param x
-   *          The value
+   *
+   * @param <T> The type of values
+   * @param x   The value
+   *
    * @return An optional value
    */
 
@@ -70,13 +75,12 @@ import com.io7m.junreachable.UnreachableCodeException;
 
   /**
    * <p>
-   * Return {@link Some} containing <code>x</code>.
+   * Return {@link Some} containing {@code x}.
    * </p>
-   * 
-   * @param <T>
-   *          The type of values
-   * @param x
-   *          The value
+   *
+   * @param <T> The type of values
+   * @param x   The value
+   *
    * @return An optional value
    */
 
@@ -84,10 +88,5 @@ import com.io7m.junreachable.UnreachableCodeException;
     final T x)
   {
     return Some.some(x);
-  }
-
-  private Option()
-  {
-    throw new UnreachableCodeException();
   }
 }

@@ -14,27 +14,10 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-package com.io7m.jfunctional;
-
 /**
- * <p>
- * Non-dependent unary function type.
- * </p>
- *
- * @param <A> The type of the domain
- * @param <B> The type of the codomain
+ * Unit tests.
  */
 
-public interface FunctionType<A, B>
-{
-  /**
-   * Evaluate the function with the given argument.
-   *
-   * @param x The argument
-   *
-   * @return A value of type {@code B}
-   */
+@com.io7m.jnull.NonNullByDefault
+package com.io7m.jfunctional.tests;
 
-  B call(
-    A x);
-}

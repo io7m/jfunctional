@@ -8,7 +8,7 @@
   <parent>
     <groupId>com.io7m.jfunctional</groupId>
     <artifactId>io7m-jfunctional</artifactId>
-    <version>1.2.1</version>
+    <version>1.3.0</version>
   </parent>
   <artifactId>io7m-jfunctional-documentation</artifactId>
 

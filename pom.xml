@@ -7,7 +7,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.io7m.jfunctional</groupId>
   <artifactId>io7m-jfunctional</artifactId>
-  <version>1.2.1</version>
+  <version>1.3.0</version>
 
   <packaging>pom</packaging>
   <name>io7m-jfunctional</name>
@@ -394,7 +394,6 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Export-Package>com.io7m.jfunctional</Export-Package>
             <Specification-Title>${project.name}</Specification-Title>
             <Specification-Version>${project.version}</Specification-Version>
             <Specification-Vendor>io7m.com</Specification-Vendor>

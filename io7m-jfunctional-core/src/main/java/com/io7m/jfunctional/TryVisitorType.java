@@ -1,5 +1,5 @@
 /*
- * Copyright © 2014 <code@io7m.com> http://io7m.com
+ * Copyright © 2016 <code@io7m.com> http://io7m.com
  * 
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -18,14 +18,11 @@ package com.io7m.jfunctional;
 
 /**
  * The type of {@link TryType} visitors.
- * 
- * @param <F>
- *          The type of failure values
- * @param <S>
- *          The type of success values
- * @param <U>
- *          The type of returned values
- * 
+ *
+ * @param <F> The type of failure values
+ * @param <S> The type of success values
+ * @param <U> The type of returned values
+ *
  * @see TryType#accept(TryVisitorType)
  */
 
@@ -33,10 +30,10 @@ public interface TryVisitorType<F, S, U>
 {
   /**
    * Visit a value of type {@link Success}.
-   * 
-   * @param f
-   *          The failure value
-   * @return A value of type <code>U</code>
+   *
+   * @param f The failure value
+   *
+   * @return A value of type {@code U}
    */
 
   U failure(
@@ -44,10 +41,10 @@ public interface TryVisitorType<F, S, U>
 
   /**
    * Visit a value of type {@link Success}.
-   * 
-   * @param s
-   *          The success value
-   * @return A value of type <code>U</code>
+   *
+   * @param s The success value
+   *
+   * @return A value of type {@code U}
    */
 
   U success(

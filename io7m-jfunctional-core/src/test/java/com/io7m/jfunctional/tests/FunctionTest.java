@@ -1,5 +1,5 @@
 /*
- * Copyright © 2014 <code@io7m.com> http://io7m.com
+ * Copyright © 2016 <code@io7m.com> http://io7m.com
  * 
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -16,19 +16,27 @@
 
 package com.io7m.jfunctional.tests;
 
+import com.io7m.jequality.annotations.EqualityReference;
+import com.io7m.jfunctional.FunctionType;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.io7m.jequality.annotations.EqualityReference;
-import com.io7m.jfunctional.FunctionType;
+/**
+ * Tests for Function.
+ */
 
-@SuppressWarnings({ "null", "static-method" }) @EqualityReference public class FunctionTest
+@SuppressWarnings({"null", "static-method"})
+@EqualityReference
+public final class FunctionTest
 {
-  @Test public void testCorrect()
+  @Test
+  public void testCorrect()
   {
     final FunctionType<Integer, Integer> f =
-      new FunctionType<Integer, Integer>() {
-        @Override public Integer call(
+      new FunctionType<Integer, Integer>()
+      {
+        @Override
+        public Integer call(
           final Integer x)
         {
           return Integer.valueOf(x.intValue() * 3);
