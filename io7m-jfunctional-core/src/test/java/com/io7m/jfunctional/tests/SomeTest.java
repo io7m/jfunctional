@@ -247,10 +247,10 @@ public final class SomeTest
 
   @Test(expected = NullCheckException.class)
   public void testSomeMapPartialProcedureNull()
-    throws Throwable
+    throws Exception
   {
     final OptionType<Integer> some = Option.some(23);
-    some.mapPartial_(null);
+    some.<Exception>mapPartial_(null);
     Assert.fail();
   }
 
