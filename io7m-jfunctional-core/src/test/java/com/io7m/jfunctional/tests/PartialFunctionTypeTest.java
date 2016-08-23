@@ -22,6 +22,8 @@ import org.junit.Test;
 import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jfunctional.PartialFunctionType;
 
+import java.io.IOException;
+
 @SuppressWarnings({ "null", "static-method" }) @EqualityReference public class PartialFunctionTypeTest
 {
   @Test public void testCorrect()
@@ -42,18 +44,18 @@ import com.io7m.jfunctional.PartialFunctionType;
   @Test public void testRaise()
   {
     try {
-      final PartialFunctionType<Integer, Integer, Exception> f =
-        new PartialFunctionType<Integer, Integer, Exception>() {
+      final PartialFunctionType<Integer, Integer, IOException> f =
+        new PartialFunctionType<Integer, Integer, IOException>() {
           @Override public Integer call(
             final Integer x)
-            throws Exception
+            throws IOException
           {
-            throw new Exception("test");
+            throw new IOException("test");
           }
         };
 
       f.call(Integer.valueOf(64));
-    } catch (final Exception e) {
+    } catch (final IOException e) {
       Assert.assertEquals("test", e.getMessage());
     }
   }
