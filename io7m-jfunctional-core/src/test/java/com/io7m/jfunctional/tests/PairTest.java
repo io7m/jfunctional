@@ -51,8 +51,8 @@ import com.io7m.jnull.NullCheckException;
     final Pair<Integer, Integer> p5 = Pair.pair(i23, i32);
 
     Assert.assertEquals(p0, p0);
-    Assert.assertFalse(p0.equals(null));
-    Assert.assertFalse(p0.equals("hello"));
+    Assert.assertNotEquals(p0, null);
+    Assert.assertNotEquals(p0, "hello");
     Assert.assertFalse(p4.equals(p5));
     Assert.assertFalse(p5.equals(p4));
     Assert.assertEquals(p1, p0);
