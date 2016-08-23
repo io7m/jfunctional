@@ -16,10 +16,10 @@
 
 package com.io7m.jfunctional;
 
-import java.io.Serializable;
-
 import com.io7m.jequality.annotations.EqualityStructural;
 import com.io7m.jnull.Nullable;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -27,16 +27,17 @@ import com.io7m.jnull.Nullable;
  * </p>
  */
 
-@EqualityStructural public final class Unit implements Serializable
+@EqualityStructural
+public final class Unit implements Serializable
 {
   private static final long serialVersionUID = -9037394631765247295L;
-  private static final Unit UNIT             = new Unit();
+  private static final Unit UNIT = new Unit();
 
   /**
    * The hash code for the {@link Unit} type.
    */
 
-  public static final int   UNIT_HASH_CODE   = 0xFACECAFE;
+  public static final int UNIT_HASH_CODE = 0xFACECAFE;
 
   /**
    * @return The unit value
@@ -52,22 +53,15 @@ import com.io7m.jnull.Nullable;
 
   }
 
-  @Override public boolean equals(
+  @Override
+  public boolean equals(
     final @Nullable Object obj)
   {
-    if (this == obj) {
-      return true;
-    }
-    if (obj == null) {
-      return false;
-    }
-    if (this.getClass() != obj.getClass()) {
-      return false;
-    }
-    return true;
+    return this == obj || obj != null && this.getClass() == obj.getClass();
   }
 
-  @Override public int hashCode()
+  @Override
+  public int hashCode()
   {
     return Unit.UNIT_HASH_CODE;
   }
