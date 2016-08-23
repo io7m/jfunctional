@@ -232,11 +232,11 @@ public final class NoneTest
 
   @Test(expected = NullCheckException.class)
   public void testNoneMapPartialProcedureNull()
-    throws Throwable
+    throws Exception
   {
     final AtomicInteger i = new AtomicInteger(0);
     final OptionType<Integer> none = Option.none();
-    none.mapPartial_(null);
+    none.<Exception>mapPartial_(null);
     Assert.fail();
   }
 
