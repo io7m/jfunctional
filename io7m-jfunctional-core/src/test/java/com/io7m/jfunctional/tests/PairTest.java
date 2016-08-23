@@ -25,6 +25,10 @@ import com.io7m.jnull.NullCheckException;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Tests for Pair.
+ */
+
 @SuppressWarnings({"boxing", "static-method"})
 @EqualityReference
 public final class PairTest

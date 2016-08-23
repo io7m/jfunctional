@@ -38,6 +38,10 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Tests for Some.
+ */
+
 @SuppressWarnings({"boxing", "unchecked", "static-method"})
 @EqualityReference
 public final class SomeTest

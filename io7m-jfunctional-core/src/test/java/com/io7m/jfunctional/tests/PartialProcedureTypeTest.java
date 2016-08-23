@@ -23,6 +23,10 @@ import org.junit.Test;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Tests for PartialProcedure.
+ */
+
 @SuppressWarnings({"null", "static-method"})
 @EqualityReference
 public final class PartialProcedureTypeTest

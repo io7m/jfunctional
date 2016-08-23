@@ -24,6 +24,10 @@ import com.io7m.jnull.NullCheckException;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Tests for Try.
+ */
+
 @SuppressWarnings({"boxing", "static-method"})
 @EqualityReference
 public final class TryTest

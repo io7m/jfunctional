@@ -21,6 +21,10 @@ import com.io7m.jfunctional.Unit;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Tests for Unit.
+ */
+
 @SuppressWarnings({"static-method"})
 @EqualityReference
 public final class UnitTest

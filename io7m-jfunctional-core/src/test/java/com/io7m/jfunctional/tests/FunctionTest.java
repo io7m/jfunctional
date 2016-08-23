@@ -21,6 +21,10 @@ import com.io7m.jfunctional.FunctionType;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Tests for Function.
+ */
+
 @SuppressWarnings({"null", "static-method"})
 @EqualityReference
 public final class FunctionTest

@@ -20,6 +20,10 @@ import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jnull.NonNull;
 import com.io7m.junreachable.UnreachableCodeException;
 
+/**
+ * Test utilities.
+ */
+
 @EqualityReference
 public final class TestUtilities
 {

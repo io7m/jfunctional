@@ -32,6 +32,10 @@ import com.io7m.junreachable.UnreachableCodeException;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Tests for Success.
+ */
+
 @SuppressWarnings({"boxing", "unchecked", "static-method"})
 @EqualityReference
 public final class SuccessTest

@@ -23,6 +23,10 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+/**
+ * Tests for PartialFunction.
+ */
+
 @SuppressWarnings({"null", "static-method"})
 @EqualityReference
 public final class PartialFunctionTypeTest

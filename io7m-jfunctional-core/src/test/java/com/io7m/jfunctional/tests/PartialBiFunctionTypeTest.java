@@ -23,6 +23,10 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+/**
+ * Tests for PartialBiFunction.
+ */
+
 @SuppressWarnings({"null", "static-method"})
 @EqualityReference
 public final class PartialBiFunctionTypeTest

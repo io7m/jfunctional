@@ -34,6 +34,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Tests for equality.
+ */
+
 @EqualityReference
 public final class EqualityTest
 {

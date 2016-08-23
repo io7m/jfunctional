@@ -21,6 +21,10 @@ import com.io7m.jfunctional.Option;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Tests for Option.
+ */
+
 @SuppressWarnings({"static-method"})
 @EqualityReference
 public final class OptionTest
