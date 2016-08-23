@@ -18,15 +18,24 @@ package com.io7m.jfunctional.tests;
 
 import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jnull.NonNull;
+import com.io7m.junreachable.UnreachableCodeException;
 
-@EqualityReference public final class TestUtilities
+@EqualityReference
+public final class TestUtilities
 {
+  private TestUtilities()
+  {
+    throw new UnreachableCodeException();
+  }
+
   private static final Object z = null;
 
-  @SuppressWarnings({ "null", "unchecked" }) static @NonNull
-    <A>
-    A
-    actuallyNull()
+  @SuppressWarnings({"null", "unchecked"})
+  static
+  @NonNull
+  <A>
+  A
+  actuallyNull()
   {
     return (A) TestUtilities.z;
   }

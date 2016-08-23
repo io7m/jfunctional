@@ -16,51 +16,60 @@
 
 package com.io7m.jfunctional.tests;
 
+import com.io7m.jequality.annotations.EqualityReference;
+import com.io7m.jfunctional.Unit;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.io7m.jequality.annotations.EqualityReference;
-import com.io7m.jfunctional.Unit;
-
-@SuppressWarnings({ "static-method" }) @EqualityReference public class UnitTest
+@SuppressWarnings({"static-method"})
+@EqualityReference
+public class UnitTest
 {
-  @Test public void testEqualsCorrect0()
+  @Test
+  public void testEqualsCorrect0()
   {
     Assert.assertEquals(Unit.unit(), Unit.unit());
   }
 
-  @Test public void testEqualsCorrect1()
+  @Test
+  public void testEqualsCorrect1()
   {
     Assert.assertNotSame(null, Unit.unit());
   }
 
-  @Test public void testEqualsCorrect2()
+  @Test
+  public void testEqualsCorrect2()
   {
-    Assert.assertFalse(Unit.unit().equals(null));
+    Assert.assertNotEquals(Unit.unit(), null);
   }
 
-  @Test public void testEqualsCorrect3()
+  @Test
+  public void testEqualsCorrect3()
   {
     final Unit u = Unit.unit();
     Assert.assertEquals(u, u);
   }
 
-  @Test public void testEqualsCorrect4()
+  @Test
+  public void testEqualsCorrect4()
   {
     Assert.assertFalse(Unit.unit().equals(Integer.valueOf(23)));
   }
 
-  @Test public void testEqualsCorrectValue0()
+  @Test
+  public void testEqualsCorrectValue0()
   {
     Assert.assertEquals(Unit.unit(), Unit.unit());
   }
 
-  @Test public void testEqualsCorrectValue1()
+  @Test
+  public void testEqualsCorrectValue1()
   {
     Assert.assertNotSame(Unit.unit(), null);
   }
 
-  @Test public void testHashCode()
+  @Test
+  public void testHashCode()
   {
     Assert.assertEquals(Unit.unit().hashCode(), Unit.UNIT_HASH_CODE);
   }
