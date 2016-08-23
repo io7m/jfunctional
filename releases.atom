@@ -6,37 +6,44 @@
   </a:author>
   <a:id>http://github.com/io7m/jfunctional/releases.atom</a:id>
   <a:title>io7m-jfunctional Releases</a:title>
-  <a:updated>2016-08-03T00:00:00Z</a:updated>
+  <a:updated>2016-08-23T00:00:00Z</a:updated>
   <a:entry>
     <a:id>0</a:id>
+    <a:updated>2016-08-23T00:00:00Z</a:updated>
+    <a:published>2016-08-23T00:00:00Z</a:published>
+    <a:title>io7m-jfunctional 1.3.0 released</a:title>
+    <a:content type="text"> io7m-jfunctional 1.3.0 released </a:content>
+  </a:entry>
+  <a:entry>
+    <a:id>1</a:id>
     <a:updated>2016-08-03T00:00:00Z</a:updated>
     <a:published>2016-08-03T00:00:00Z</a:published>
     <a:title>io7m-jfunctional 1.2.1 released</a:title>
     <a:content type="text"> io7m-jfunctional 1.2.1 released </a:content>
   </a:entry>
   <a:entry>
-    <a:id>1</a:id>
+    <a:id>2</a:id>
     <a:updated>2016-04-02T00:00:00Z</a:updated>
     <a:published>2016-04-02T00:00:00Z</a:published>
     <a:title>io7m-jfunctional 1.2.0 released</a:title>
     <a:content type="text"> io7m-jfunctional 1.2.0 released </a:content>
   </a:entry>
   <a:entry>
-    <a:id>2</a:id>
+    <a:id>3</a:id>
     <a:updated>2015-10-05T00:00:00Z</a:updated>
     <a:published>2015-10-05T00:00:00Z</a:published>
     <a:title>io7m-jfunctional 1.1.0 released</a:title>
     <a:content type="text"> io7m-jfunctional 1.1.0 released </a:content>
   </a:entry>
   <a:entry>
-    <a:id>3</a:id>
+    <a:id>4</a:id>
     <a:updated>2015-08-09T00:00:00Z</a:updated>
     <a:published>2015-08-09T00:00:00Z</a:published>
     <a:title>io7m-jfunctional 1.0.1 released</a:title>
     <a:content type="text"> io7m-jfunctional 1.0.1 released </a:content>
   </a:entry>
   <a:entry>
-    <a:id>4</a:id>
+    <a:id>5</a:id>
     <a:updated>2014-06-22T00:00:00Z</a:updated>
     <a:published>2014-06-22T00:00:00Z</a:published>
     <a:title>io7m-jfunctional 1.0.0 released</a:title>
