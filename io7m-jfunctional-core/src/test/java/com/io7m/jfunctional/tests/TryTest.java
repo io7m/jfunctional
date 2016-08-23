@@ -16,36 +16,41 @@
 
 package com.io7m.jfunctional.tests;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jfunctional.Failure;
 import com.io7m.jfunctional.Success;
 import com.io7m.jfunctional.Try;
 import com.io7m.jnull.NullCheckException;
+import org.junit.Assert;
+import org.junit.Test;
 
-@SuppressWarnings({ "boxing", "static-method" }) @EqualityReference public final class TryTest
+@SuppressWarnings({"boxing", "static-method"})
+@EqualityReference
+public final class TryTest
 {
-  @Test public void testFailure0()
+  @Test
+  public void testFailure0()
   {
     final Failure<Integer, ?> s = (Failure<Integer, ?>) Try.failure(23);
     Assert.assertEquals((Integer) 23, s.get());
   }
 
-  @Test(expected = NullCheckException.class) public void testNull0()
+  @Test(expected = NullCheckException.class)
+  public void testNull0()
   {
     Try.success(TestUtilities.actuallyNull());
     Assert.fail();
   }
 
-  @Test(expected = NullCheckException.class) public void testNull1()
+  @Test(expected = NullCheckException.class)
+  public void testNull1()
   {
     Try.failure(TestUtilities.actuallyNull());
     Assert.fail();
   }
 
-  @Test public void testSuccess0()
+  @Test
+  public void testSuccess0()
   {
     final Success<?, Integer> s = (Success<?, Integer>) Try.success(23);
     Assert.assertEquals((Integer) 23, s.get());

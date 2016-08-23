@@ -23,7 +23,7 @@ import org.junit.Test;
 
 @SuppressWarnings({"static-method"})
 @EqualityReference
-public class UnitTest
+public final class UnitTest
 {
   @Test
   public void testEqualsCorrect0()

@@ -16,15 +16,17 @@
 
 package com.io7m.jfunctional.tests;
 
+import com.io7m.jequality.annotations.EqualityReference;
+import com.io7m.jfunctional.Option;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.io7m.jequality.annotations.EqualityReference;
-import com.io7m.jfunctional.Option;
-
-@SuppressWarnings({ "static-method" }) @EqualityReference public class OptionTest
+@SuppressWarnings({"static-method"})
+@EqualityReference
+public final class OptionTest
 {
-  @Test public void testOf()
+  @Test
+  public void testOf()
   {
     Assert.assertEquals(Option.none(), Option.of(null));
   }

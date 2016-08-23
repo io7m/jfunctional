@@ -16,22 +16,26 @@
 
 package com.io7m.jfunctional.tests;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
+import com.io7m.jequality.annotations.EqualityReference;
+import com.io7m.jfunctional.ProcedureType;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.io7m.jequality.annotations.EqualityReference;
-import com.io7m.jfunctional.ProcedureType;
+import java.util.concurrent.atomic.AtomicInteger;
 
-@SuppressWarnings({ "null", "static-method" }) @EqualityReference public class ProcedureTypeTest
+@SuppressWarnings({"null", "static-method"})
+@EqualityReference
+public final class ProcedureTypeTest
 {
-  @Test public void testCorrect()
+  @Test
+  public void testCorrect()
   {
     final AtomicInteger value = new AtomicInteger(0);
 
-    final ProcedureType<Integer> f = new ProcedureType<Integer>() {
-      @Override public void call(
+    final ProcedureType<Integer> f = new ProcedureType<Integer>()
+    {
+      @Override
+      public void call(
         final Integer x)
       {
         value.addAndGet(x.intValue());

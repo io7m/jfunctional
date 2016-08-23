@@ -16,19 +16,21 @@
 
 package com.io7m.jfunctional.tests;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jequality.validator.AnnotationRequirement;
 import com.io7m.jequality.validator.EqualityValidator;
 import com.io7m.jequality.validator.ValidatorResult;
 import com.io7m.jfunctional.Pair;
 import com.io7m.jnull.NullCheckException;
+import org.junit.Assert;
+import org.junit.Test;
 
-@SuppressWarnings({ "boxing", "static-method" }) @EqualityReference public class PairTest
+@SuppressWarnings({"boxing", "static-method"})
+@EqualityReference
+public final class PairTest
 {
-  @Test public void testCorrect()
+  @Test
+  public void testCorrect()
   {
     final Integer i23 = Integer.valueOf(23);
     assert i23 != null;
@@ -38,7 +40,8 @@ import com.io7m.jnull.NullCheckException;
     Assert.assertEquals("hello", p.getRight());
   }
 
-  @Test public void testEquals()
+  @Test
+  public void testEquals()
   {
     final Integer i32 = Integer.valueOf(32);
     final Integer i23 = Integer.valueOf(23);
@@ -59,7 +62,8 @@ import com.io7m.jnull.NullCheckException;
     Assert.assertEquals(p0, p1);
   }
 
-  @Test public void testEqualsType()
+  @Test
+  public void testEqualsType()
   {
     Assert.assertEquals(ValidatorResult.VALIDATION_OK, EqualityValidator
       .validateClass(
@@ -68,7 +72,8 @@ import com.io7m.jnull.NullCheckException;
         true));
   }
 
-  @Test public void testHashCode()
+  @Test
+  public void testHashCode()
   {
     final Integer i23 = Integer.valueOf(23);
     assert i23 != null;
@@ -78,17 +83,20 @@ import com.io7m.jnull.NullCheckException;
     Assert.assertEquals(p0.hashCode(), p1.hashCode());
   }
 
-  @Test(expected = NullCheckException.class) public void testNull_0()
+  @Test(expected = NullCheckException.class)
+  public void testNull_0()
   {
     Pair.pair(TestUtilities.actuallyNull(), 23);
   }
 
-  @Test(expected = NullCheckException.class) public void testNull_1()
+  @Test(expected = NullCheckException.class)
+  public void testNull_1()
   {
     Pair.pair(23, TestUtilities.actuallyNull());
   }
 
-  @Test public void testStrings()
+  @Test
+  public void testStrings()
   {
     final Integer i23 = Integer.valueOf(23);
     assert i23 != null;

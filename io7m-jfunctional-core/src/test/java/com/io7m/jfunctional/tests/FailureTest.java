@@ -16,9 +16,6 @@
 
 package com.io7m.jfunctional.tests;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 import com.io7m.jequality.annotations.EqualityReference;
 import com.io7m.jequality.validator.AnnotationRequirement;
 import com.io7m.jequality.validator.EqualityValidator;
@@ -32,10 +29,15 @@ import com.io7m.jfunctional.TryType;
 import com.io7m.jfunctional.TryVisitorType;
 import com.io7m.jnull.NullCheckException;
 import com.io7m.junreachable.UnreachableCodeException;
+import org.junit.Assert;
+import org.junit.Test;
 
-@SuppressWarnings({ "boxing", "static-method", "unchecked" }) @EqualityReference public final class FailureTest
+@SuppressWarnings({"boxing", "static-method", "unchecked"})
+@EqualityReference
+public final class FailureTest
 {
-  @Test public void testEquals()
+  @Test
+  public void testEquals()
   {
     Assert.assertEquals(Try.failure(23), Try.failure(23));
 
@@ -48,7 +50,8 @@ import com.io7m.junreachable.UnreachableCodeException;
     Assert.assertNotEquals(Try.failure(23), Try.success(23));
   }
 
-  @Test public void testEqualsType()
+  @Test
+  public void testEqualsType()
   {
     Assert.assertEquals(ValidatorResult.VALIDATION_OK, EqualityValidator
       .validateClass(
@@ -57,12 +60,14 @@ import com.io7m.junreachable.UnreachableCodeException;
         true));
   }
 
-  @Test(expected = NullCheckException.class) public void testNull0()
+  @Test(expected = NullCheckException.class)
+  public void testNull0()
   {
     Try.failure(TestUtilities.actuallyNull());
   }
 
-  @Test(expected = NullCheckException.class) public void testNull1()
+  @Test(expected = NullCheckException.class)
+  public void testNull1()
   {
     Try
       .failure(23)
@@ -72,7 +77,8 @@ import com.io7m.junreachable.UnreachableCodeException;
     Assert.fail();
   }
 
-  @Test(expected = NullCheckException.class) public void testNull2()
+  @Test(expected = NullCheckException.class)
+  public void testNull2()
     throws Exception
   {
     Try
@@ -83,18 +89,22 @@ import com.io7m.junreachable.UnreachableCodeException;
     Assert.fail();
   }
 
-  @Test public void testSomeAccept0()
+  @Test
+  public void testSomeAccept0()
   {
     Assert.assertEquals(
       (Integer) 23,
-      Try.failure(46).accept(new TryVisitorType<Integer, Object, Integer>() {
-        @Override public Integer failure(
+      Try.failure(46).accept(new TryVisitorType<Integer, Object, Integer>()
+      {
+        @Override
+        public Integer failure(
           final Failure<Integer, Object> f)
         {
           return f.get() / 2;
         }
 
-        @Override public Integer success(
+        @Override
+        public Integer success(
           final Success<Integer, Object> s)
         {
           throw new UnreachableCodeException();
@@ -102,21 +112,25 @@ import com.io7m.junreachable.UnreachableCodeException;
       }));
   }
 
-  @Test public void testSomeAccept1()
+  @Test
+  public void testSomeAccept1()
     throws Exception
   {
     Assert.assertEquals(
       (Integer) 23,
       Try.failure(46).acceptPartial(
-        new TryPartialVisitorType<Integer, Object, Integer, Exception>() {
-          @Override public Integer failure(
+        new TryPartialVisitorType<Integer, Object, Integer, Exception>()
+        {
+          @Override
+          public Integer failure(
             final Failure<Integer, Object> f)
             throws Exception
           {
             return f.get() / 2;
           }
 
-          @Override public Integer success(
+          @Override
+          public Integer success(
             final Success<Integer, Object> s)
             throws Exception
           {
@@ -125,14 +139,16 @@ import com.io7m.junreachable.UnreachableCodeException;
         }));
   }
 
-  @Test public void testSomeGet0()
+  @Test
+  public void testSomeGet0()
   {
     final Failure<Integer, Object> s =
       (Failure<Integer, Object>) Try.failure(23);
     Assert.assertEquals((Integer) 23, s.get());
   }
 
-  @Test public void testToString()
+  @Test
+  public void testToString()
   {
     Assert.assertNotEquals(Try.failure(23).toString(), Try
       .failure(24)

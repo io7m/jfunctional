@@ -16,24 +16,28 @@
 
 package com.io7m.jfunctional.tests;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
+import com.io7m.jequality.annotations.EqualityReference;
+import com.io7m.jfunctional.PartialProcedureType;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.io7m.jequality.annotations.EqualityReference;
-import com.io7m.jfunctional.PartialProcedureType;
+import java.util.concurrent.atomic.AtomicInteger;
 
-@SuppressWarnings({ "null", "static-method" }) @EqualityReference public class PartialProcedureTypeTest
+@SuppressWarnings({"null", "static-method"})
+@EqualityReference
+public final class PartialProcedureTypeTest
 {
-  @Test public void testCorrect()
+  @Test
+  public void testCorrect()
     throws Throwable
   {
     final AtomicInteger value = new AtomicInteger(0);
 
     final PartialProcedureType<Integer, Throwable> f =
-      new PartialProcedureType<Integer, Throwable>() {
-        @Override public void call(
+      new PartialProcedureType<Integer, Throwable>()
+      {
+        @Override
+        public void call(
           final Integer x)
         {
           value.addAndGet(x.intValue());

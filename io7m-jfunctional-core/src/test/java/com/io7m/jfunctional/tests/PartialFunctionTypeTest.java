@@ -16,22 +16,26 @@
 
 package com.io7m.jfunctional.tests;
 
+import com.io7m.jequality.annotations.EqualityReference;
+import com.io7m.jfunctional.PartialFunctionType;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.io7m.jequality.annotations.EqualityReference;
-import com.io7m.jfunctional.PartialFunctionType;
-
 import java.io.IOException;
 
-@SuppressWarnings({ "null", "static-method" }) @EqualityReference public class PartialFunctionTypeTest
+@SuppressWarnings({"null", "static-method"})
+@EqualityReference
+public final class PartialFunctionTypeTest
 {
-  @Test public void testCorrect()
+  @Test
+  public void testCorrect()
     throws Exception
   {
     final PartialFunctionType<Integer, Integer, Exception> f =
-      new PartialFunctionType<Integer, Integer, Exception>() {
-        @Override public Integer call(
+      new PartialFunctionType<Integer, Integer, Exception>()
+      {
+        @Override
+        public Integer call(
           final Integer x)
         {
           return Integer.valueOf(x.intValue() * 3);
@@ -41,12 +45,15 @@ import java.io.IOException;
     Assert.assertEquals(Integer.valueOf(96), f.call(Integer.valueOf(32)));
   }
 
-  @Test public void testRaise()
+  @Test
+  public void testRaise()
   {
     try {
       final PartialFunctionType<Integer, Integer, IOException> f =
-        new PartialFunctionType<Integer, Integer, IOException>() {
-          @Override public Integer call(
+        new PartialFunctionType<Integer, Integer, IOException>()
+        {
+          @Override
+          public Integer call(
             final Integer x)
             throws IOException
           {

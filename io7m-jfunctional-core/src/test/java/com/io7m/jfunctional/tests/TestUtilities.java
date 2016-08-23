@@ -23,12 +23,12 @@ import com.io7m.junreachable.UnreachableCodeException;
 @EqualityReference
 public final class TestUtilities
 {
+  private static final Object z = null;
+
   private TestUtilities()
   {
     throw new UnreachableCodeException();
   }
-
-  private static final Object z = null;
 
   @SuppressWarnings({"null", "unchecked"})
   public static
