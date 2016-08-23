@@ -3,6 +3,31 @@
   <c:project>io7m-jfunctional</c:project>
 
   <c:release c:ticket-system="com.github.io7m.jfunctional">
+    <c:date>2016-08-23</c:date>
+    <c:version>1.3.0</c:version>
+    <c:item>
+      <c:date>2016-08-23</c:date>
+      <c:type-code-new/>
+      <c:summary>Make Failure.failure() public</c:summary>
+    </c:item>
+    <c:item>
+      <c:date>2016-08-23</c:date>
+      <c:type-code-new/>
+      <c:summary>Make Success.success() public</c:summary>
+    </c:item>
+    <c:item>
+      <c:date>2016-08-23</c:date>
+      <c:type-code-new/>
+      <c:summary>Make Some.some() public</c:summary>
+    </c:item>
+    <c:item>
+      <c:date>2016-08-23</c:date>
+      <c:type-code-new/>
+      <c:summary>Make None.none() public</c:summary>
+    </c:item>
+  </c:release>
+
+  <c:release c:ticket-system="com.github.io7m.jfunctional">
     <c:date>2016-08-03</c:date>
     <c:version>1.2.1</c:version>
     <c:item>
