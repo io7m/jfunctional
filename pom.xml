@@ -23,8 +23,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <siteReposDirectory>/com/io7m/jfunctional</siteReposDirectory>
-    <siteDocumentationDirectory>/com/io7m/jfunctional/io7m-jfunctional-documentation</siteDocumentationDirectory>
+    <siteReposDirectory>com/io7m/jfunctional</siteReposDirectory>
+    <siteDocumentationDirectory>com/io7m/jfunctional/io7m-jfunctional-documentation</siteDocumentationDirectory>
   </properties>
 
   <licenses>
