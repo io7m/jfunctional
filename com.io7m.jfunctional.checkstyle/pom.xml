@@ -7,15 +7,19 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.io7m.jfunctional</groupId>
-    <artifactId>io7m-jfunctional</artifactId>
+    <artifactId>com.io7m.jfunctional</artifactId>
     <version>1.3.0</version>
   </parent>
-  <artifactId>io7m-jfunctional-checkstyle</artifactId>
+  <artifactId>com.io7m.jfunctional.checkstyle</artifactId>
 
   <packaging>jar</packaging>
-  <name>io7m-jfunctional-checkstyle</name>
+  <name>com.io7m.jfunctional.checkstyle</name>
   <description>~Functional types (Checkstyle policy)</description>
   <url>http://io7m.github.io/jfunctional/</url>
+
+  <properties>
+    <io7m.api.previousArtifactId>io7m-jfunctional-checkstyle</io7m.api.previousArtifactId>
+  </properties>
 
   <scm>
     <url>${project.parent.scm.url}</url>
