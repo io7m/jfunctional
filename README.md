@@ -5,4 +5,6 @@ jfunctional
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.io7m.jfunctional/io7m-jfunctional/badge.png)](https://maven-badges.herokuapp.com/maven-central/com.io7m.jfunctional/io7m-jfunctional)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/06f806f13ce84012ad44fe0d20d790d3)](https://www.codacy.com/app/github_79/jfunctional?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=io7m/jfunctional&amp;utm_campaign=Badge_Grade)
 
-See https://io7m.github.io/jfunctional/ for more information.
+This project will no longer be receiving any updates. Java 8 and
+[Vavr](http://vavr.io) have made this project irrelevant.
+
